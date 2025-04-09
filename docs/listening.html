@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>French Listening Practice - TEF/DELF Preparation</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <base target="_parent">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>French Listening Practice</h1>
+            <div class="form-toggle">
+                <a href="#" class="form-toggle-link" id="toggle-form">Hide Contact Form</a>
+            </div>
+        </header>
+
+        <main>
+            <!-- Contact Form Section - Visible by default -->
+            <div id="contact-form-container">
+                <div class="form-header">
+                    <div class="avatar-container">
+                        <img src="https://yiyang512.github.io/new/hemiya.jpg" alt="Hemiya Bot" class="avatar">
+                    </div>
+                    <h2>Begin Your French Learning Journey</h2>
+                    <p>Please provide your information to access our listening practice tool</p>
+                </div>
+                
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="fullName">Full Name <span class="required">*</span></label>
+                        <input type="text" id="fullName" name="fullName" required>
+                        <div class="error-message" id="fullName-error">Please enter your full name</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                        <div class="error-message" id="email-error">Please enter a valid email address</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number (optional)</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="targetLevel">Target French Level <span class="required">*</span></label>
+                        <select id="targetLevel" name="targetLevel" required>
+                            <option value="">-- Select your level --</option>
+                            <option value="A1">A1 - Beginner</option>
+                            <option value="A2">A2 - Elementary</option>
+                            <option value="B1">B1 - Intermediate</option>
+                            <option value="B2">B2 - Upper Intermediate</option>
+                        </select>
+                        <div class="error-message" id="targetLevel-error">Please select your target level</div>
+                    </div>
+                    
+                    <button type="submit" id="submit-form">Start Your French Journey</button>
+                    
+                    <div id="form-success" class="form-message success-message hidden">
+                        <p>Thank you for your submission! You now have access to our listening practice tool.</p>
+                    </div>
+                    
+                    <div id="form-error" class="form-message error-message hidden">
+                        <p>There was an error processing your submission. Please try again.</p>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Listening Level Selection - Hidden by default -->
+            <div id="listening-app" class="hidden">
+                <div class="level-selector">
+                    <h2>Sélectionnez votre niveau</h2>
+                    <div class="level-buttons">
+                        <button class="level-btn" data-level="A1">A1</button>
+                        <button class="level-btn" data-level="A2">A2</button>
+                        <button class="level-btn" data-level="B1">B1</button>
+                        <button class="level-btn" data-level="B2">B2</button>
+                    </div>
+                </div>
+
+                <div id="level-description" class="hidden">
+                    <div class="level-info">
+                        <h2>Niveau <span id="current-level">A1</span></h2>
+                        <p id="level-explanation"></p>
+                    </div>
+                    <div class="listening-selector">
+                        <label for="listening-select">Choisissez un audio:</label>
+                        <select id="listening-select">
+                            <option value="">-- Sélectionnez un audio --</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="listening-container" class="hidden">
+                    <div class="audio-player-container">
+                        <h3>Écoutez attentivement</h3>
+                        <div class="audio-player">
+                            <audio id="audio-player" controls>
+                                <source id="audio-source" src="" type="audio/mp3">
+                                Votre navigateur ne supporte pas l'élément audio.
+                            </audio>
+                            <div class="audio-controls">
+                                <button id="play-audio" class="control-btn">Écouter</button>
+                                <button id="pause-audio" class="control-btn">Pause</button>
+                                <button id="replay-audio" class="control-btn">Réécouter</button>
+                            </div>
+                        </div>
+                        <div class="playback-count">
+                            <p>Nombre d'écoutes: <span id="playback-counter">0</span>/2</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timer-container">
+                        <span id="timer">05:00</span>
+                        <button id="start-timer">Démarrer</button>
+                    </div>
+                    
+                    <section class="transcript hidden" id="transcript-section">
+                        <h2>Transcription</h2>
+                        <div id="transcript-content" class="transcript-content"></div>
+                    </section>
+
+                    <section class="questions">
+                        <h2>Questions de compréhension</h2>
+                        <form id="quiz-form"></form>
+                    </section>
+
+                    <section class="results hidden" id="results">
+                        <h2>Résultats</h2>
+                        <p id="score"></p>
+                        <div id="detailed-feedback"></div>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>French Listening Practice Tool for TEF/DELF Preparation</p>
+        </footer>
+    </div>
+
+    <script src="js/listening-data.js"></script>
+    <script src="js/listening-script.js"></script>
+    <script>
+        // Toggle contact form visibility
+        document.getElementById('toggle-form').addEventListener('click', function(e) {
+            e.preventDefault();
+            const formContainer = document.getElementById('contact-form-container');
+            const toggleLink = document.getElementById('toggle-form');
+            
+            if (formContainer.classList.contains('hidden')) {
+                formContainer.classList.remove('hidden');
+                toggleLink.textContent = 'Hide Contact Form';
+            } else {
+                formContainer.classList.add('hidden');
+                toggleLink.textContent = 'Show Contact Form';
+            }
+        });
+    </script>
+</body>
+</html> 

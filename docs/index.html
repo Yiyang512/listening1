@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>French Reading Practice - TEF/DELF Preparation</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 100%;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>French Reading Practice</h1>
+        </header>
+
+        <main>
+            <!-- Contact Form Section -->
+            <div id="contact-form-container">
+                <div class="form-header">
+                    <div class="avatar-container">
+                        <img src="https://yiyang512.github.io/new/hemiya.jpg" alt="Hemiya Bot" class="avatar">
+                    </div>
+                    <h2>Begin Your French Learning Journey</h2>
+                    <p>Please provide your information to access our reading practice tool</p>
+                </div>
+                
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="fullName">Full Name <span class="required">*</span></label>
+                        <input type="text" id="fullName" name="fullName" required>
+                        <div class="error-message" id="fullName-error">Please enter your full name</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                        <div class="error-message" id="email-error">Please enter a valid email address</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number (optional)</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="targetLevel">Target French Level <span class="required">*</span></label>
+                        <select id="targetLevel" name="targetLevel" required>
+                            <option value="">-- Select your level --</option>
+                            <option value="A1">A1 - Beginner</option>
+                            <option value="A2">A2 - Elementary</option>
+                            <option value="B1">B1 - Intermediate</option>
+                            <option value="B2">B2 - Upper Intermediate</option>
+                        </select>
+                        <div class="error-message" id="targetLevel-error">Please select your target level</div>
+                    </div>
+                    
+                    <button type="submit" id="submit-form">Start Your French Journey</button>
+                    
+                    <div id="form-success" class="form-message success-message hidden">
+                        <p>Thank you for your submission! You now have access to our reading practice tool.</p>
+                    </div>
+                    
+                    <div id="form-error" class="form-message error-message hidden">
+                        <p>There was an error processing your submission. Please try again.</p>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Reading Level Selection - Initially Hidden -->
+            <div id="reading-app" class="hidden">
+                <div class="level-selector">
+                    <h2>Sélectionnez votre niveau</h2>
+                    <div class="level-buttons">
+                        <button class="level-btn" data-level="A1">A1</button>
+                        <button class="level-btn" data-level="A2">A2</button>
+                        <button class="level-btn" data-level="B1">B1</button>
+                        <button class="level-btn" data-level="B2">B2</button>
+                    </div>
+                </div>
+
+                <div id="level-description" class="hidden">
+                    <div class="level-info">
+                        <h2>Niveau <span id="current-level">A1</span></h2>
+                        <p id="level-explanation"></p>
+                    </div>
+                    <div class="reading-selector">
+                        <label for="reading-select">Choisissez un texte:</label>
+                        <select id="reading-select">
+                            <option value="">-- Sélectionnez un texte --</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="reading-container" class="hidden">
+                    <div class="timer-container">
+                        <span id="timer">10:00</span>
+                        <button id="start-timer">Démarrer</button>
+                    </div>
+                    
+                    <section class="reading-passage">
+                        <h2 id="reading-title"></h2>
+                        <div id="passage-content" class="passage-content"></div>
+                    </section>
+
+                    <section class="questions">
+                        <h2>Questions de compréhension</h2>
+                        <form id="quiz-form"></form>
+                    </section>
+
+                    <section class="results hidden" id="results">
+                        <h2>Résultats</h2>
+                        <p id="score"></p>
+                        <div id="detailed-feedback"></div>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>French Reading Practice Tool for TEF/DELF Preparation</p>
+        </footer>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html> 
