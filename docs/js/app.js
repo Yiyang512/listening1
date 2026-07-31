@@ -135,14 +135,46 @@ document.addEventListener('DOMContentLoaded', () => {
     return state.progress[exerciseKey(level, id)] || null;
   }
 
-  function pickFrenchVoice() {
+  function frenchVoices() {
     const voices = window.speechSynthesis ? speechSynthesis.getVoices() : [];
-    return (
-      voices.find((v) => /fr[-_]FR/i.test(v.lang) && /google|thomas|amelie|aurelie|marie|paul/i.test(v.name)) ||
-      voices.find((v) => /fr[-_]FR/i.test(v.lang)) ||
-      voices.find((v) => /^fr/i.test(v.lang)) ||
-      null
-    );
+    const fr = voices.filter((v) => /^fr/i.test(v.lang));
+    const prefer = (re) => fr.find((v) => re.test(v.name));
+    const female =
+      prefer(/google français|thomas|amelie|marie|denise|aurelie|siri.*female|hortense/i) ||
+      fr.find((v) => /female|femme/i.test(v.name)) ||
+      fr[0] ||
+      null;
+    const male =
+      prefer(/henri|paul|thomas|google français|siri.*male|claude/i) ||
+      fr.find((v) => /male|homme/i.test(v.name) && v !== female) ||
+      fr[1] ||
+      female;
+    return { female, male, all: fr };
+  }
+
+  function pickFrenchVoice(turnIndex = 0) {
+    const { female, male } = frenchVoices();
+    return turnIndex % 2 === 0 ? female : male;
+  }
+
+  function dialogueTurns(text) {
+    const lines = text.split(/\n+/).map((l) => l.trim()).filter(Boolean);
+    const turns = [];
+    let buf = [];
+    lines.forEach((ln) => {
+      const m = ln.match(/^[-–—]\s*(.*)$/);
+      if (m) {
+        if (buf.length) {
+          turns.push(buf.join(' '));
+          buf = [];
+        }
+        turns.push(m[1].trim());
+      } else {
+        buf.push(ln);
+      }
+    });
+    if (buf.length) turns.push(buf.join(' '));
+    return turns.filter(Boolean);
   }
 
   // ---------- contact / gate ----------
@@ -408,7 +440,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         if (els.audioEl.duration && !Number.isNaN(els.audioEl.duration)) {
           state.source = 'mp3';
-          els.sourceBadge.textContent = 'Audio file';
+          els.sourceBadge.textContent = 'Natural French voice';
           els.sourceBadge.className = 'source-badge file';
           els.timeTotal.textContent = formatTime(els.audioEl.duration);
           updatePlayButtons();
@@ -442,20 +474,19 @@ document.addEventListener('DOMContentLoaded', () => {
   function prepareTts(exercise) {
     stopTts();
     const text = stripHtml(exercise.transcript);
-    const chunks = splitSentences(text);
+    const turns = dialogueTurns(text);
+    const chunks = turns.length >= 2 ? turns : splitSentences(text);
     state.tts.utterances = chunks;
     state.tts.charsTotal = text.length || 1;
     state.tts.charsDone = 0;
     state.tts.index = 0;
     state.source = 'tts';
-    els.sourceBadge.textContent = 'French voice (TTS)';
+    els.sourceBadge.textContent = 'Browser voice (fallback)';
     els.sourceBadge.className = 'source-badge tts';
-    // Rough duration estimate: ~14 chars/sec at 1x French speech
-    const est = Math.max(8, Math.round(text.length / (14 * (state.settings.speed || 1))));
+    const est = Math.max(8, Math.round(text.length / (13 * (state.settings.speed || 1))));
     els.timeTotal.textContent = formatTime(est);
     updatePlayButtons();
 
-    // Warm voices on Chrome
     if (window.speechSynthesis) {
       speechSynthesis.getVoices();
       speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices();
@@ -532,8 +563,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const chunk = state.tts.utterances[state.tts.index];
     const u = new SpeechSynthesisUtterance(chunk);
     u.lang = 'fr-FR';
-    u.rate = Math.min(1.4, Math.max(0.7, Number(els.speedSelect.value) || 1));
-    const voice = pickFrenchVoice();
+    // Slightly slower + tiny pitch alternation makes dialogue less flat
+    const speed = Number(els.speedSelect.value) || 1;
+    u.rate = Math.min(1.25, Math.max(0.75, speed * 0.92));
+    u.pitch = state.tts.index % 2 === 0 ? 1.05 : 0.92;
+    const voice = pickFrenchVoice(state.tts.index);
     if (voice) u.voice = voice;
 
     u.onboundary = (ev) => {
