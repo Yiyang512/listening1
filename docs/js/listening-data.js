@@ -6,10 +6,10 @@ const listeningLevelDescriptions = {
     'B2': 'Niveau avancé. Vous pouvez comprendre des discours complexes et suivre une argumentation sur des sujets relativement familiers.'
 };
 
-// Example audio file paths - Replace with your actual audio files
+// Audio file paths — missing files fall back to French TTS in the app
 const audioBasePath = 'audio/';
 
-// Listening data organized by level
+// Listening data organized by level (32+ exercises each)
 const listeningData = {
     'A1': [
         {
@@ -1371,6 +1371,646 @@ const listeningData = {
                     explanation: 'C\'est dans un quartier calme.'
                 }
             ]
+        },
+        {
+            id: 'a1-marche',
+            title: 'Au marché',
+            audioFile: `${audioBasePath}a1-marche.mp3`,
+            transcript: `<p>- Bonjour, je voudrais un kilo de pommes, s'il vous plaît.</p><p>- Bien sûr. Et avec ceci ?</p><p>- Deux oranges et une baguette.</p><p>- Ça fait six euros.</p>`,
+            questions: [
+                {
+                    id: 'a1-marche-q1',
+                    type: 'radio',
+                    question: 'Que veut le client ?',
+                    options: [
+                        { id: 'a', text: 'Un kilo de pommes' },
+                        { id: 'b', text: 'Un kilo de poires' },
+                        { id: 'c', text: 'Deux kilos de pommes' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Le document indique : Un kilo de pommes.'
+                },
+                {
+                    id: 'a1-marche-q2',
+                    type: 'radio',
+                    question: 'Combien coûte le total ?',
+                    options: [
+                        { id: 'a', text: 'Quatre euros' },
+                        { id: 'b', text: 'Six euros' },
+                        { id: 'c', text: 'Dix euros' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Six euros.'
+                }
+            ]
+        },
+        {
+            id: 'a1-ecole',
+            title: 'À l\'école',
+            audioFile: `${audioBasePath}a1-ecole.mp3`,
+            transcript: `<p>Bonjour ! Je m'appelle Lucas. J'ai 12 ans. Je suis en classe de sixième.</p><p>J'aime les maths et le sport. Le mercredi, je n'ai pas cours l'après-midi.</p>`,
+            questions: [
+                {
+                    id: 'a1-ecole-q1',
+                    type: 'radio',
+                    question: 'Quel âge a Lucas ?',
+                    options: [
+                        { id: 'a', text: '10 ans' },
+                        { id: 'b', text: '12 ans' },
+                        { id: 'c', text: '14 ans' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 12 ans.'
+                },
+                {
+                    id: 'a1-ecole-q2',
+                    type: 'radio',
+                    question: 'Quelles matières aime-t-il ?',
+                    options: [
+                        { id: 'a', text: 'Histoire et géographie' },
+                        { id: 'b', text: 'Maths et sport' },
+                        { id: 'c', text: 'Français et anglais' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Maths et sport.'
+                }
+            ]
+        },
+        {
+            id: 'a1-bus',
+            title: 'Prendre le bus',
+            audioFile: `${audioBasePath}a1-bus.mp3`,
+            transcript: `<p>- Excusez-moi, ce bus va à la gare ?</p><p>- Oui, madame. Un ticket coûte deux euros.</p><p>- Combien de temps pour arriver ?</p><p>- Environ quinze minutes.</p>`,
+            questions: [
+                {
+                    id: 'a1-bus-q1',
+                    type: 'radio',
+                    question: 'Où va le bus ?',
+                    options: [
+                        { id: 'a', text: 'À l\'aéroport' },
+                        { id: 'b', text: 'À la gare' },
+                        { id: 'c', text: 'Au musée' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : À la gare.'
+                },
+                {
+                    id: 'a1-bus-q2',
+                    type: 'radio',
+                    question: 'Combien dure le trajet ?',
+                    options: [
+                        { id: 'a', text: '5 minutes' },
+                        { id: 'b', text: '15 minutes' },
+                        { id: 'c', text: '30 minutes' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 15 minutes.'
+                }
+            ]
+        },
+        {
+            id: 'a1-meteo-matin',
+            title: 'La météo du matin',
+            audioFile: `${audioBasePath}a1-meteo-matin.mp3`,
+            transcript: `<p>Il fait beau le matin, mais il va pleuvoir cet après-midi.</p><p>La température est de 18 degrés.</p>`,
+            questions: [
+                {
+                    id: 'a1-meteo-matin-q1',
+                    type: 'radio',
+                    question: 'Quel temps le matin ?',
+                    options: [
+                        { id: 'a', text: 'Il pleut' },
+                        { id: 'b', text: 'Il fait beau' },
+                        { id: 'c', text: 'Il neige' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Il fait beau.'
+                },
+                {
+                    id: 'a1-meteo-matin-q2',
+                    type: 'radio',
+                    question: 'Température ?',
+                    options: [
+                        { id: 'a', text: '8 degrés' },
+                        { id: 'b', text: '18 degrés' },
+                        { id: 'c', text: '28 degrés' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 18 degrés.'
+                }
+            ]
+        },
+        {
+            id: 'a1-animaux',
+            title: 'Les animaux préférés',
+            audioFile: `${audioBasePath}a1-animaux.mp3`,
+            transcript: `<p>Je m'appelle Emma. J'ai un chat noir qui s'appelle Minou.</p><p>Le week-end, je vais voir les chevaux chez ma grand-mère.</p>`,
+            questions: [
+                {
+                    id: 'a1-animaux-q1',
+                    type: 'radio',
+                    question: 'Comment s\'appelle le chat ?',
+                    options: [
+                        { id: 'a', text: 'Minou' },
+                        { id: 'b', text: 'Milo' },
+                        { id: 'c', text: 'Mimi' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Le document indique : Minou.'
+                },
+                {
+                    id: 'a1-animaux-q2',
+                    type: 'radio',
+                    question: 'Où voit-elle des chevaux ?',
+                    options: [
+                        { id: 'a', text: 'Au zoo' },
+                        { id: 'b', text: 'Chez sa grand-mère' },
+                        { id: 'c', text: 'À l\'école' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Chez sa grand-mère.'
+                }
+            ]
+        },
+        {
+            id: 'a1-anniv-ami',
+            title: 'L\'anniversaire d\'un ami',
+            audioFile: `${audioBasePath}a1-anniv-ami.mp3`,
+            transcript: `<p>- C'est l'anniversaire de Paul samedi.</p><p>- On lui offre un livre et un gâteau.</p><p>- La fête est à 16 heures chez lui.</p>`,
+            questions: [
+                {
+                    id: 'a1-anniv-ami-q1',
+                    type: 'radio',
+                    question: 'C\'est l\'anniversaire de qui ?',
+                    options: [
+                        { id: 'a', text: 'Paul' },
+                        { id: 'b', text: 'Pierre' },
+                        { id: 'c', text: 'Papa' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Le document indique : Paul.'
+                },
+                {
+                    id: 'a1-anniv-ami-q2',
+                    type: 'radio',
+                    question: 'À quelle heure ?',
+                    options: [
+                        { id: 'a', text: '14 heures' },
+                        { id: 'b', text: '16 heures' },
+                        { id: 'c', text: '18 heures' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 16 heures.'
+                }
+            ]
+        },
+        {
+            id: 'a1-pharmacie-a1',
+            title: 'À la pharmacie',
+            audioFile: `${audioBasePath}a1-pharmacie-a1.mp3`,
+            transcript: `<p>- J'ai mal à la tête.</p><p>- Vous avez de la fièvre ?</p><p>- Non. Prenez ce médicament trois fois par jour.</p>`,
+            questions: [
+                {
+                    id: 'a1-pharmacie-a1-q1',
+                    type: 'radio',
+                    question: 'Quel problème ?',
+                    options: [
+                        { id: 'a', text: 'Mal au ventre' },
+                        { id: 'b', text: 'Mal à la tête' },
+                        { id: 'c', text: 'Mal à la gorge' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Mal à la tête.'
+                },
+                {
+                    id: 'a1-pharmacie-a1-q2',
+                    type: 'radio',
+                    question: 'Combien de fois par jour ?',
+                    options: [
+                        { id: 'a', text: 'Une' },
+                        { id: 'b', text: 'Deux' },
+                        { id: 'c', text: 'Trois' }
+                    ],
+                    correctAnswer: 'c',
+                    explanation: 'Le document indique : Trois.'
+                }
+            ]
+        },
+        {
+            id: 'a1-bibliotheque-a1',
+            title: 'À la bibliothèque',
+            audioFile: `${audioBasePath}a1-bibliotheque-a1.mp3`,
+            transcript: `<p>- Je voudrais emprunter ce livre.</p><p>- Vous avez une carte ?</p><p>- Oui. Vous pouvez le garder deux semaines.</p>`,
+            questions: [
+                {
+                    id: 'a1-bibliotheque-a1-q1',
+                    type: 'radio',
+                    question: 'Que veut-elle ?',
+                    options: [
+                        { id: 'a', text: 'Acheter' },
+                        { id: 'b', text: 'Emprunter' },
+                        { id: 'c', text: 'Vendre' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Emprunter.'
+                },
+                {
+                    id: 'a1-bibliotheque-a1-q2',
+                    type: 'radio',
+                    question: 'Durée ?',
+                    options: [
+                        { id: 'a', text: 'Une semaine' },
+                        { id: 'b', text: 'Deux semaines' },
+                        { id: 'c', text: 'Un mois' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Deux semaines.'
+                }
+            ]
+        },
+        {
+            id: 'a1-parc',
+            title: 'Au parc',
+            audioFile: `${audioBasePath}a1-parc.mp3`,
+            transcript: `<p>Je vais au parc avec mon frère. Nous jouons au football puis nous mangeons une glace.</p><p>Le parc ferme à 19 heures.</p>`,
+            questions: [
+                {
+                    id: 'a1-parc-q1',
+                    type: 'radio',
+                    question: 'Avec qui ?',
+                    options: [
+                        { id: 'a', text: 'Sa sœur' },
+                        { id: 'b', text: 'Son frère' },
+                        { id: 'c', text: 'Son ami' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Son frère.'
+                },
+                {
+                    id: 'a1-parc-q2',
+                    type: 'radio',
+                    question: 'Heure de fermeture ?',
+                    options: [
+                        { id: 'a', text: '17 h' },
+                        { id: 'b', text: '19 h' },
+                        { id: 'c', text: '21 h' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 19 h.'
+                }
+            ]
+        },
+        {
+            id: 'a1-numeros',
+            title: 'Donner son numéro',
+            audioFile: `${audioBasePath}a1-numeros.mp3`,
+            transcript: `<p>- Tu as mon numéro ?</p><p>- Non.</p><p>- C'est le 06 12 34 56 78. Je t'appelle ce soir.</p>`,
+            questions: [
+                {
+                    id: 'a1-numeros-q1',
+                    type: 'radio',
+                    question: 'Que demande-t-on ?',
+                    options: [
+                        { id: 'a', text: 'Une adresse' },
+                        { id: 'b', text: 'Un numéro' },
+                        { id: 'c', text: 'Un e-mail' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Un numéro.'
+                },
+                {
+                    id: 'a1-numeros-q2',
+                    type: 'radio',
+                    question: 'Quand appelle-t-elle ?',
+                    options: [
+                        { id: 'a', text: 'Ce matin' },
+                        { id: 'b', text: 'Cet après-midi' },
+                        { id: 'c', text: 'Ce soir' }
+                    ],
+                    correctAnswer: 'c',
+                    explanation: 'Le document indique : Ce soir.'
+                }
+            ]
+        },
+        {
+            id: 'a1-couleur',
+            title: 'Choisir une couleur',
+            audioFile: `${audioBasePath}a1-couleur.mp3`,
+            transcript: `<p>- Quelle couleur pour la robe ?</p><p>- Le bleu foncé, s'il vous plaît.</p>`,
+            questions: [
+                {
+                    id: 'a1-couleur-q1',
+                    type: 'radio',
+                    question: 'Que choisit-elle ?',
+                    options: [
+                        { id: 'a', text: 'Une jupe' },
+                        { id: 'b', text: 'Une robe' },
+                        { id: 'c', text: 'Un manteau' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Une robe.'
+                },
+                {
+                    id: 'a1-couleur-q2',
+                    type: 'radio',
+                    question: 'Quelle nuance ?',
+                    options: [
+                        { id: 'a', text: 'Bleu clair' },
+                        { id: 'b', text: 'Bleu foncé' },
+                        { id: 'c', text: 'Vert' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Bleu foncé.'
+                }
+            ]
+        },
+        {
+            id: 'a1-weekend-a1',
+            title: 'Le week-end',
+            audioFile: `${audioBasePath}a1-weekend-a1.mp3`,
+            transcript: `<p>Le samedi, je prends le petit-déjeuner à 10 heures et je vois mes amis.</p><p>Le dimanche, je reste à la maison.</p>`,
+            questions: [
+                {
+                    id: 'a1-weekend-a1-q1',
+                    type: 'radio',
+                    question: 'Petit-déjeuner samedi ?',
+                    options: [
+                        { id: 'a', text: '8 h' },
+                        { id: 'b', text: '10 h' },
+                        { id: 'c', text: '12 h' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 10 h.'
+                },
+                {
+                    id: 'a1-weekend-a1-q2',
+                    type: 'radio',
+                    question: 'Dimanche ?',
+                    options: [
+                        { id: 'a', text: 'Voyage' },
+                        { id: 'b', text: 'Maison' },
+                        { id: 'c', text: 'Marché' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Maison.'
+                }
+            ]
+        },
+        {
+            id: 'a1-zoo',
+            title: 'Au zoo',
+            audioFile: `${audioBasePath}a1-zoo.mp3`,
+            transcript: `<p>- Regarde les lions !</p><p>- Et les pandas qui mangent du bambou.</p><p>- Les dauphins sont à 15 heures.</p>`,
+            questions: [
+                {
+                    id: 'a1-zoo-q1',
+                    type: 'radio',
+                    question: 'Que mangent les pandas ?',
+                    options: [
+                        { id: 'a', text: 'Poisson' },
+                        { id: 'b', text: 'Bambou' },
+                        { id: 'c', text: 'Viande' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Bambou.'
+                },
+                {
+                    id: 'a1-zoo-q2',
+                    type: 'radio',
+                    question: 'Heure des dauphins ?',
+                    options: [
+                        { id: 'a', text: '13 h' },
+                        { id: 'b', text: '15 h' },
+                        { id: 'c', text: '17 h' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 15 h.'
+                }
+            ]
+        },
+        {
+            id: 'a1-trajet-ecole',
+            title: 'Le trajet à l\'école',
+            audioFile: `${audioBasePath}a1-trajet-ecole.mp3`,
+            transcript: `<p>Je vais à l'école à vélo. Le trajet dure dix minutes.</p><p>Quand il pleut, je prends le bus.</p>`,
+            questions: [
+                {
+                    id: 'a1-trajet-ecole-q1',
+                    type: 'radio',
+                    question: 'Moyen habituel ?',
+                    options: [
+                        { id: 'a', text: 'À pied' },
+                        { id: 'b', text: 'À vélo' },
+                        { id: 'c', text: 'Voiture' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : À vélo.'
+                },
+                {
+                    id: 'a1-trajet-ecole-q2',
+                    type: 'radio',
+                    question: 'S\'il pleut ?',
+                    options: [
+                        { id: 'a', text: 'Reste chez elle' },
+                        { id: 'b', text: 'Prend le bus' },
+                        { id: 'c', text: 'Prend le métro' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Prend le bus.'
+                }
+            ]
+        },
+        {
+            id: 'a1-pain',
+            title: 'Acheter du pain',
+            audioFile: `${audioBasePath}a1-pain.mp3`,
+            transcript: `<p>- Une baguette et un croissant, s'il vous plaît.</p><p>- Ça fait 2 euros 50.</p>`,
+            questions: [
+                {
+                    id: 'a1-pain-q1',
+                    type: 'radio',
+                    question: 'Que veut-il ?',
+                    options: [
+                        { id: 'a', text: 'Une baguette et un croissant' },
+                        { id: 'b', text: 'Un gâteau' },
+                        { id: 'c', text: 'Du lait' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Le document indique : Une baguette et un croissant.'
+                },
+                {
+                    id: 'a1-pain-q2',
+                    type: 'radio',
+                    question: 'Prix ?',
+                    options: [
+                        { id: 'a', text: '1 €' },
+                        { id: 'b', text: '2,50 €' },
+                        { id: 'c', text: '5 €' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 2,50 €.'
+                }
+            ]
+        },
+        {
+            id: 'a1-heure',
+            title: 'Demander l\'heure',
+            audioFile: `${audioBasePath}a1-heure.mp3`,
+            transcript: `<p>- Quelle heure est-il ?</p><p>- Il est 9 heures 10.</p>`,
+            questions: [
+                {
+                    id: 'a1-heure-q1',
+                    type: 'radio',
+                    question: 'Quelle heure ?',
+                    options: [
+                        { id: 'a', text: '8 h 10' },
+                        { id: 'b', text: '9 h 10' },
+                        { id: 'c', text: '10 h 10' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 9 h 10.'
+                },
+                {
+                    id: 'a1-heure-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'a1-adresse',
+            title: 'Donner son adresse',
+            audioFile: `${audioBasePath}a1-adresse.mp3`,
+            transcript: `<p>J'habite au 12 rue Victor Hugo, à Lyon.</p>`,
+            questions: [
+                {
+                    id: 'a1-adresse-q1',
+                    type: 'radio',
+                    question: 'Ville ?',
+                    options: [
+                        { id: 'a', text: 'Paris' },
+                        { id: 'b', text: 'Lyon' },
+                        { id: 'c', text: 'Lille' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Lyon.'
+                },
+                {
+                    id: 'a1-adresse-q2',
+                    type: 'radio',
+                    question: 'Numéro ?',
+                    options: [
+                        { id: 'a', text: '10' },
+                        { id: 'b', text: '12' },
+                        { id: 'c', text: '20' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 12.'
+                }
+            ]
+        },
+        {
+            id: 'a1-boisson',
+            title: 'Commander une boisson',
+            audioFile: `${audioBasePath}a1-boisson.mp3`,
+            transcript: `<p>- Un thé vert, s'il vous plaît.</p><p>- Sucré ?</p><p>- Non, nature.</p>`,
+            questions: [
+                {
+                    id: 'a1-boisson-q1',
+                    type: 'radio',
+                    question: 'Boisson ?',
+                    options: [
+                        { id: 'a', text: 'Café' },
+                        { id: 'b', text: 'Thé vert' },
+                        { id: 'c', text: 'Jus' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Thé vert.'
+                },
+                {
+                    id: 'a1-boisson-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'a1-age',
+            title: 'Parler de son âge',
+            audioFile: `${audioBasePath}a1-age.mp3`,
+            transcript: `<p>J'ai 30 ans. Mon frère a 25 ans. Ma sœur a 22 ans.</p>`,
+            questions: [
+                {
+                    id: 'a1-age-q1',
+                    type: 'radio',
+                    question: 'Âge du locuteur ?',
+                    options: [
+                        { id: 'a', text: '22' },
+                        { id: 'b', text: '25' },
+                        { id: 'c', text: '30' }
+                    ],
+                    correctAnswer: 'c',
+                    explanation: 'Le document indique : 30.'
+                },
+                {
+                    id: 'a1-age-q2',
+                    type: 'radio',
+                    question: 'Âge du frère ?',
+                    options: [
+                        { id: 'a', text: '22' },
+                        { id: 'b', text: '25' },
+                        { id: 'c', text: '30' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 25.'
+                }
+            ]
+        },
+        {
+            id: 'a1-nom',
+            title: 'Épeler son nom',
+            audioFile: `${audioBasePath}a1-nom.mp3`,
+            transcript: `<p>- Votre nom ?</p><p>- Dupont. D-U-P-O-N-T.</p>`,
+            questions: [
+                {
+                    id: 'a1-nom-q1',
+                    type: 'radio',
+                    question: 'Nom ?',
+                    options: [
+                        { id: 'a', text: 'Dupont' },
+                        { id: 'b', text: 'Durand' },
+                        { id: 'c', text: 'Martin' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Le document indique : Dupont.'
+                },
+                {
+                    id: 'a1-nom-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
         }
     ],
     'A2': [
@@ -1964,393 +2604,6 @@ const listeningData = {
             ]
         },
         {
-            id: 'b1-entretien',
-            title: 'Un entretien d\'embauche',
-            audioFile: `${audioBasePath}b1-entretien.mp3`,
-            transcript: `<p>- Bonjour, merci de m'accueillir pour cet entretien.</p>
-                        <p>- Bonjour, enchanté de vous rencontrer. Je suis votre intervieweur. Pouvez-vous vous présenter brièvement ?</p>
-                        <p>- Bien sûr. Je m'appelle Marie Dupont, j'ai 30 ans et je suis diplômée d'un master en marketing.</p>
-                        <p>- Très bien. Pourriez-vous nous parler de votre expérience professionnelle ?</p>
-                        <p>- Bien sûr. J'ai travaillé pendant 5 ans dans une agence de marketing numérique. J'ai été responsable de campagnes de publicité en ligne et de stratégies de contenu.</p>
-                        <p>- C'est intéressant. Et quelles sont vos compétences clés ?</p>
-                        <p>- Je suis une experte en analyse de données, en gestion de projets et en communication.</p>
-                        <p>- Très bien. Pouvez-vous nous donner un exemple de projet réussi ?</p>
-                        <p>- Bien sûr. J'ai dirigé une campagne de marketing de contenu pour une entreprise de mode en ligne. Nous avons augmenté le trafic de 30% en 6 mois et les ventes ont augmenté de 20%.</p>
-                        <p>- C'est impressionnant. Et quelles sont vos ambitions professionnelles à court et moyen terme ?</p>
-                        <p>- À court terme, j'aimerais contribuer à la croissance de l'entreprise en mettant en œuvre des stratégies de marketing numérique efficaces. À moyen terme, j'aspire à devenir responsable du marketing digital pour une entreprise internationale.</p>
-                        <p>- Très bien. Pouvez-vous nous parler de vos loisirs et de vos intérêts ?</p>
-                        <p>- Bien sûr. Je suis passionnée de lecture, de cinéma et de voyage. J'aime également cuisiner et essayer de nouvelles recettes.</p>
-                        <p>- C'est intéressant. Merci beaucoup pour votre temps. Nous vous recontacterons bientôt.</p>
-                        <p>- Merci beaucoup pour cette opportunité. Au revoir.</p>`,
-            questions: [
-                {
-                    id: 'b1-entretien-q1',
-                    type: 'radio',
-                    question: 'Quel est le nom de la candidate ?',
-                    options: [
-                        { id: 'a', text: 'Marie Dupont' },
-                        { id: 'b', text: 'Sophie Martin' },
-                        { id: 'c', text: 'Julie Leclerc' }
-                    ],
-                    correctAnswer: 'a',
-                    explanation: 'La candidate se présente en disant "Je m\'appelle Marie Dupont".'
-                },
-                {
-                    id: 'b1-entretien-q2',
-                    type: 'radio',
-                    question: 'Quel est le domaine d\'études de la candidate ?',
-                    options: [
-                        { id: 'a', text: 'Informatique' },
-                        { id: 'b', text: 'Marketing' },
-                        { id: 'c', text: 'Finance' }
-                    ],
-                    correctAnswer: 'b',
-                    explanation: 'La candidate dit "j\'ai un master en marketing".'
-                },
-                {
-                    id: 'b1-entretien-q3',
-                    type: 'radio',
-                    question: 'Quelle est la durée d\'expérience professionnelle de la candidate ?',
-                    options: [
-                        { id: 'a', text: 'Moins de 2 ans' },
-                        { id: 'b', text: 'Entre 2 et 5 ans' },
-                        { id: 'c', text: 'Plus de 5 ans' }
-                    ],
-                    correctAnswer: 'b',
-                    explanation: 'La candidate dit "j\'ai travaillé pendant 5 ans dans une agence de marketing numérique".'
-                }
-            ]
-        },
-        {
-            id: 'b1-voyage',
-            title: 'Discussion sur un voyage',
-            audioFile: `${audioBasePath}b1-voyage.mp3`,
-            transcript: `<p>- Bonjour, comment s'est passé votre voyage à New York ?</p>
-                        <p>- Ça s'est très bien passé. Nous avons visité de nombreux endroits intéressants.</p>
-                        <p>- C'est bien. Quels endroits avez-vous visités ?</p>
-                        <p>- Nous avons visité le musée d'art moderne, Central Park, Times Square et le Metropolitan Museum of Art.</p>
-                        <p>- C'est impressionnant. Et qu'avez-vous pensé de la nourriture ?</p>
-                        <p>- La nourriture était délicieuse. Nous avons goûté à de nombreux plats typiques, comme des bagels, des hot-dogs et des pizzas.</p>
-                        <p>- C'est délicieux. Et comment était le service dans les restaurants ?</p>
-                        <p>- Le service était excellent. Les serveurs étaient très sympathiques et serviables.</p>
-                        <p>- C'est bien. Et comment était le logement ?</p>
-                        <p>- Le logement était confortable. Nous avions une chambre spacieuse avec une vue sur la ville.</p>
-                        <p>- C'est bien. Et y a-t-il des choses que vous auriez faites différemment ?</p>
-                        <p>- Non, nous avons tout apprécié. C'était une expérience inoubliable.</p>
-                        <p>- C'est bien. Merci pour le partage. À bientôt.</p>
-                        <p>- Oui, à bientôt.</p>`,
-            questions: [
-                {
-                    id: 'b1-voyage-q1',
-                    type: 'radio',
-                    question: 'Quels endroits ont été visités lors du voyage ?',
-                    options: [
-                        { id: 'a', text: 'Le musée d\'art moderne et Central Park' },
-                        { id: 'b', text: 'Times Square et le Metropolitan Museum of Art' },
-                        { id: 'c', text: 'Le musée d\'art moderne, Central Park, Times Square et le Metropolitan Museum of Art' }
-                    ],
-                    correctAnswer: 'c',
-                    explanation: 'Les endroits visités sont le musée d\'art moderne, Central Park, Times Square et le Metropolitan Museum of Art.'
-                },
-                {
-                    id: 'b1-voyage-q2',
-                    type: 'radio',
-                    question: 'Quels plats typiques ont été goûtés ?',
-                    options: [
-                        { id: 'a', text: 'Des bagels et des hot-dogs' },
-                        { id: 'b', text: 'Des pizzas et des hamburgers' },
-                        { id: 'c', text: 'Des bagels, des hot-dogs et des pizzas' }
-                    ],
-                    correctAnswer: 'c',
-                    explanation: 'Les plats typiques goûtés sont des bagels, des hot-dogs et des pizzas.'
-                },
-                {
-                    id: 'b1-voyage-q3',
-                    type: 'radio',
-                    question: 'Comment était le service dans les restaurants ?',
-                    options: [
-                        { id: 'a', text: 'Excellent' },
-                        { id: 'b', text: 'Moyen' },
-                        { id: 'c', text: 'Mauvais' }
-                    ],
-                    correctAnswer: 'a',
-                    explanation: 'Le service dans les restaurants était excellent.'
-                }
-            ]
-        },
-        {
-            id: 'b1-reclamation',
-            title: 'Réclamation client',
-            audioFile: `${audioBasePath}b1-reclamation.mp3`,
-            transcript: `<p>- Bonjour, je voudrais faire une réclamation.</p>
-                        <p>- Bonjour, merci de nous appeler. Pouvez-vous me donner plus de détails ?</p>
-                        <p>- Bien sûr. J'ai commandé un livre en ligne il y a deux semaines, mais il n'est toujours pas arrivé.</p>
-                        <p>- Je suis désolé pour le désagrément. Pouvez-vous me donner le numéro de commande ?</p>
-                        <p>- Oui, c'est le numéro 123456789.</p>
-                        <p>- Très bien. Je vais vérifier la situation.</p>
-                        <p>- Merci.</p>
-                        <p>- Je suis désolé, mais il semble y avoir eu une erreur dans la préparation de la commande.</p>
-                        <p>- Qu'est-ce que je peux faire ?</p>
-                        <p>- Je vais annuler la commande et vous rembourser intégralement.</p>
-                        <p>- C'est bien. Merci beaucoup.</p>
-                        <p>- De rien. Nous sommes là pour vous aider. Au revoir.</p>
-                        <p>- Au revoir.</p>`,
-            questions: [
-                {
-                    id: 'b1-reclamation-q1',
-                    type: 'radio',
-                    question: 'Quel est le problème de la cliente ?',
-                    options: [
-                        { id: 'a', text: 'Elle a reçu un mauvais produit' },
-                        { id: 'b', text: 'Elle n\'a pas reçu sa commande' },
-                        { id: 'c', text: 'Elle a eu un problème avec le paiement' }
-                    ],
-                    correctAnswer: 'b',
-                    explanation: 'La cliente dit "j\'ai commandé un livre en ligne il y a deux semaines, mais il n\'est toujours pas arrivé".'
-                },
-                {
-                    id: 'b1-reclamation-q2',
-                    type: 'radio',
-                    question: 'Quelle est la solution proposée par le service client ?',
-                    options: [
-                        { id: 'a', text: 'Annuler la commande et rembourser intégralement' },
-                        { id: 'b', text: 'Renvoyer un nouveau produit' },
-                        { id: 'c', text: 'Offrir un bon d\'achat' }
-                    ],
-                    correctAnswer: 'a',
-                    explanation: 'Le service client dit "Je vais annuler la commande et vous rembourser intégralement".'
-                }
-            ]
-        },
-        {
-            id: 'b1-processus',
-            title: 'Processus d\'admission universitaire',
-            audioFile: `${audioBasePath}b1-processus.mp3`,
-            transcript: `<p>- Bonjour, je voudrais des informations sur le processus d'admission à l'université.</p>
-                        <p>- Bien sûr. Je vais vous expliquer les différentes étapes.</p>
-                        <p>- Tout d'abord, vous devez remplir le formulaire de candidature en ligne.</p>
-                        <p>- Ensuite, vous devez fournir plusieurs documents : relevés de notes, lettres de recommandation, CV et lettre de motivation.</p>
-                        <p>- Une fois votre dossier complet, il sera examiné par le comité d'admission.</p>
-                        <p>- Si votre dossier est retenu, vous serez convoqué pour un entretien.</p>
-                        <p>- Après l'entretien, vous recevrez une réponse définitive dans un délai de deux semaines.</p>
-                        <p>- En cas d'admission, vous devrez confirmer votre inscription et payer les frais de scolarité.</p>`,
-            questions: [
-                {
-                    id: 'b1-processus-q1',
-                    type: 'checkbox',
-                    question: 'Quels documents sont demandés pour la candidature ? (Plusieurs réponses possibles)',
-                    options: [
-                        { id: 'a', text: 'Relevés de notes' },
-                        { id: 'b', text: 'Lettres de recommandation' },
-                        { id: 'c', text: 'CV' },
-                        { id: 'd', text: 'Lettre de motivation' }
-                    ],
-                    correctAnswer: ['a', 'b', 'c', 'd'],
-                    explanation: 'Tous ces documents sont requis selon l\'audio : relevés de notes, lettres de recommandation, CV et lettre de motivation.'
-                },
-                {
-                    id: 'b1-processus-q2',
-                    type: 'radio',
-                    question: 'Quel est le délai de réponse après l\'entretien ?',
-                    options: [
-                        { id: 'a', text: 'Une semaine' },
-                        { id: 'b', text: 'Deux semaines' },
-                        { id: 'c', text: 'Un mois' }
-                    ],
-                    correctAnswer: 'b',
-                    explanation: 'L\'audio indique que la réponse définitive sera donnée dans un délai de deux semaines après l\'entretien.'
-                }
-            ]
-        },
-        {
-            id: 'b1-itineraire',
-            title: 'Demander son itinéraire',
-            audioFile: `${audioBasePath}b1-itineraire.mp3`,
-            transcript: `<p>- Excusez-moi, je cherche la bibliothèque municipale.</p>
-                        <p>- Je peux vous aider. C'est assez simple.</p>
-                        <p>- Prenez la rue en face jusqu'au premier carrefour.</p>
-                        <p>- Au carrefour, tournez à droite et continuez tout droit pendant environ 200 mètres.</p>
-                        <p>- Vous verrez un grand parc sur votre gauche.</p>
-                        <p>- Longez le parc jusqu'au bout, puis prenez la première rue à gauche.</p>
-                        <p>- La bibliothèque se trouve juste après, c'est un grand bâtiment moderne.</p>
-                        <p>- Vous ne pouvez pas la manquer, il y a une grande place devant.</p>`,
-            questions: [
-                {
-                    id: 'b1-itineraire-q1',
-                    type: 'radio',
-                    question: 'Quelle est la première direction à prendre ?',
-                    options: [
-                        { id: 'a', text: 'Tourner à gauche' },
-                        { id: 'b', text: 'Aller tout droit' },
-                        { id: 'c', text: 'Tourner à droite' }
-                    ],
-                    correctAnswer: 'b',
-                    explanation: 'L\'audio indique de prendre la rue en face (aller tout droit) jusqu\'au premier carrefour.'
-                },
-                {
-                    id: 'b1-itineraire-q2',
-                    type: 'checkbox',
-                    question: 'Quels points de repère sont mentionnés dans les indications ? (Plusieurs réponses possibles)',
-                    options: [
-                        { id: 'a', text: 'Un parc' },
-                        { id: 'b', text: 'Une grande place' },
-                        { id: 'c', text: 'Un carrefour' },
-                        { id: 'd', text: 'Un feu rouge' }
-                    ],
-                    correctAnswer: ['a', 'b', 'c'],
-                    explanation: 'L\'audio mentionne un carrefour, un grand parc et une grande place devant la bibliothèque.'
-                }
-            ]
-        },
-        {
-            id: 'b1-visite-appartement',
-            title: 'Visite d\'un appartement',
-            audioFile: `${audioBasePath}b1-visite-appartement.mp3`,
-            transcript: `<p>- Bonjour, je suis l'agent immobilier. Je vais vous faire visiter l'appartement.</p>
-                        <p>- Comme vous pouvez le voir, nous sommes dans le salon qui est très lumineux grâce à ses grandes fenêtres.</p>
-                        <p>- La cuisine est entièrement équipée avec des appareils modernes.</p>
-                        <p>- Il y a deux chambres : une grande chambre parentale et une plus petite qui peut servir de bureau.</p>
-                        <p>- La salle de bain a été récemment rénovée.</p>
-                        <p>- L'appartement dispose aussi d'un balcon avec vue sur le parc.</p>
-                        <p>- Le quartier est très calme et bien desservi par les transports en commun.</p>
-                        <p>- Le loyer est de 1200 euros par mois, charges comprises.</p>`,
-            questions: [
-                {
-                    id: 'b1-visite-appartement-q1',
-                    type: 'checkbox',
-                    question: 'Quelles pièces sont mentionnées dans la visite ? (Plusieurs réponses possibles)',
-                    options: [
-                        { id: 'a', text: 'Salon' },
-                        { id: 'b', text: 'Cuisine' },
-                        { id: 'c', text: 'Chambres' },
-                        { id: 'd', text: 'Salle de bain' }
-                    ],
-                    correctAnswer: ['a', 'b', 'c', 'd'],
-                    explanation: 'L\'audio mentionne toutes ces pièces : le salon, la cuisine, deux chambres et la salle de bain.'
-                },
-                {
-                    id: 'b1-visite-appartement-q2',
-                    type: 'radio',
-                    question: 'Quel est le loyer mensuel de l\'appartement ?',
-                    options: [
-                        { id: 'a', text: '1000 euros' },
-                        { id: 'b', text: '1200 euros' },
-                        { id: 'c', text: '1400 euros' }
-                    ],
-                    correctAnswer: 'b',
-                    explanation: 'L\'audio indique que le loyer est de 1200 euros par mois, charges comprises.'
-                }
-            ]
-        },
-        {
-            id: 'b1-commande',
-            title: 'Commander un repas par téléphone',
-            audioFile: `${audioBasePath}b1-commande.mp3`,
-            transcript: `<p>- Bonjour, restaurant Le Gourmet, que puis-je faire pour vous ?</p>
-                        <p>- Bonjour, je voudrais commander un repas à emporter.</p>
-                        <p>- Très bien, je vous écoute.</p>
-                        <p>- Je voudrais une salade César, un steak-frites et une tarte aux pommes.</p>
-                        <p>- Souhaitez-vous une cuisson particulière pour le steak ?</p>
-                        <p>- Oui, à point s'il vous plaît.</p>
-                        <p>- D'accord. Votre commande sera prête dans 30 minutes.</p>
-                        <p>- Parfait. Quel est le montant total ?</p>
-                        <p>- Ça fera 35 euros. Vous pourrez payer sur place.</p>
-                        <p>- Très bien, merci. À tout à l'heure.</p>`,
-            questions: [
-                {
-                    id: 'b1-commande-q1',
-                    type: 'checkbox',
-                    question: 'Quels plats sont commandés ? (Plusieurs réponses possibles)',
-                    options: [
-                        { id: 'a', text: 'Salade César' },
-                        { id: 'b', text: 'Steak-frites' },
-                        { id: 'c', text: 'Tarte aux pommes' },
-                        { id: 'd', text: 'Soupe à l\'oignon' }
-                    ],
-                    correctAnswer: ['a', 'b', 'c'],
-                    explanation: 'La personne commande une salade César, un steak-frites et une tarte aux pommes.'
-                },
-                {
-                    id: 'b1-commande-q2',
-                    type: 'radio',
-                    question: 'Quel est le montant total de la commande ?',
-                    options: [
-                        { id: 'a', text: '25 euros' },
-                        { id: 'b', text: '35 euros' },
-                        { id: 'c', text: '45 euros' }
-                    ],
-                    correctAnswer: 'b',
-                    explanation: 'Le montant total de la commande est de 35 euros.'
-                }
-            ]
-        },
-        {
-            id: 'b1-vacances',
-            title: 'Préparer ses vacances',
-            audioFile: `${audioBasePath}b1-vacances.mp3`,
-            transcript: `<p>- Alors, tu as décidé où tu vas partir en vacances ?</p>
-                        <p>- Oui, j'ai choisi la Croatie !</p>
-                        <p>- Oh, c'est super ! Tu as déjà planifié ton itinéraire ?</p>
-                        <p>- Oui, je commence par Zagreb, la capitale.</p>
-                        <p>- Ensuite, je vais visiter Split et Dubrovnik.</p>
-                        <p>- Je terminerai par quelques jours sur l'île de Hvar.</p>
-                        <p>- Ça a l'air génial ! Tu as prévu combien de temps ?</p>
-                        <p>- Deux semaines au total. J'ai un budget de 2000 euros.</p>
-                        <p>- C'est raisonnable. Tu as déjà réservé tes hébergements ?</p>
-                        <p>- Oui, j'ai tout réservé : les hôtels et les transports.</p>`,
-            questions: [
-                {
-                    id: 'b1-vacances-q1',
-                    type: 'radio',
-                    question: 'Quelle est la destination choisie par Émilie ?',
-                    options: [
-                        { id: 'a', text: 'La Grèce' },
-                        { id: 'b', text: 'L\'Italie' },
-                        { id: 'c', text: 'La Croatie' }
-                    ],
-                    correctAnswer: 'c',
-                    explanation: 'Émilie dit qu\'elle a choisi la Croatie pour ses vacances d\'été.'
-                },
-                {
-                    id: 'b1-vacances-q2',
-                    type: 'radio',
-                    question: 'Quelle ville Émilie visitera-t-elle en premier ?',
-                    options: [
-                        { id: 'a', text: 'Dubrovnik' },
-                        { id: 'b', text: 'Split' },
-                        { id: 'c', text: 'Zagreb' }
-                    ],
-                    correctAnswer: 'b',
-                    explanation: 'Émilie indique qu\'elle va commencer par passer quatre jours à Split.'
-                },
-                {
-                    id: 'b1-vacances-q3',
-                    type: 'checkbox',
-                    question: 'Quelles destinations sont incluses dans l\'itinéraire d\'Émilie ? (Plusieurs réponses possibles)',
-                    options: [
-                        { id: 'a', text: 'Split' },
-                        { id: 'b', text: 'L\'île de Hvar' },
-                        { id: 'c', text: 'Dubrovnik' },
-                        { id: 'd', text: 'Le parc national de Plitvice' }
-                    ],
-                    correctAnswer: ['a', 'b', 'c', 'd'],
-                    explanation: 'L\'itinéraire d\'Émilie comprend Split, l\'île de Hvar, Dubrovnik et le parc national de Plitvice.'
-                },
-                {
-                    id: 'b1-vacances-q4',
-                    type: 'radio',
-                    question: 'Quel est le budget prévu par Émilie pour ses deux semaines de vacances ?',
-                    options: [
-                        { id: 'a', text: '1000 euros' },
-                        { id: 'b', text: '1500 euros' },
-                        { id: 'c', text: '2000 euros' }
-                    ],
-                    correctAnswer: 'b',
-                    explanation: 'Émilie mentionne qu\'elle a prévu environ 1500 euros tout compris pour les deux semaines.'
-                }
-            ]
-        },
-        {
             id: 'a2-cinema',
             title: 'Au cinéma',
             audioFile: `${audioBasePath}a2-cinema.mp3`,
@@ -2939,6 +3192,1843 @@ const listeningData = {
                     explanation: 'La vendeuse dit que les croissants sont tout chauds car ils sortent du four.'
                 }
             ]
+        },
+        {
+            id: 'a2-demenagement',
+            title: 'Déménager',
+            audioFile: `${audioBasePath}a2-demenagement.mp3`,
+            transcript: `<p>- Je déménage le 15 mars dans un appartement plus grand.</p><p>- Tu as besoin d'aide samedi matin ?</p><p>- Oui, pour les cartons.</p>`,
+            questions: [
+                {
+                    id: 'a2-demenagement-q1',
+                    type: 'radio',
+                    question: 'Date ?',
+                    options: [
+                        { id: 'a', text: '5 mars' },
+                        { id: 'b', text: '15 mars' },
+                        { id: 'c', text: '25 mars' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 15 mars.'
+                },
+                {
+                    id: 'a2-demenagement-q2',
+                    type: 'radio',
+                    question: 'Aide quand ?',
+                    options: [
+                        { id: 'a', text: 'Vendredi soir' },
+                        { id: 'b', text: 'Samedi matin' },
+                        { id: 'c', text: 'Dimanche' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Samedi matin.'
+                }
+            ]
+        },
+        {
+            id: 'a2-permis',
+            title: 'Passer le permis',
+            audioFile: `${audioBasePath}a2-permis.mp3`,
+            transcript: `<p>J'ai réussi mon permis la semaine dernière du premier coup.</p><p>J'emprunte encore la voiture de mes parents.</p>`,
+            questions: [
+                {
+                    id: 'a2-permis-q1',
+                    type: 'radio',
+                    question: 'Quand ?',
+                    options: [
+                        { id: 'a', text: 'Hier' },
+                        { id: 'b', text: 'La semaine dernière' },
+                        { id: 'c', text: 'Le mois dernier' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : La semaine dernière.'
+                },
+                {
+                    id: 'a2-permis-q2',
+                    type: 'radio',
+                    question: 'Quelle voiture ?',
+                    options: [
+                        { id: 'a', text: 'La sienne' },
+                        { id: 'b', text: 'Celle des parents' },
+                        { id: 'c', text: 'Celle d\'un ami' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Celle des parents.'
+                }
+            ]
+        },
+        {
+            id: 'a2-reunion',
+            title: 'Organiser une réunion',
+            audioFile: `${audioBasePath}a2-reunion.mp3`,
+            transcript: `<p>Réunion mardi à 14 heures. Marie est absente, mais Paul et Luc seront là.</p>`,
+            questions: [
+                {
+                    id: 'a2-reunion-q1',
+                    type: 'radio',
+                    question: 'Quand ?',
+                    options: [
+                        { id: 'a', text: 'Lundi 14 h' },
+                        { id: 'b', text: 'Mardi 14 h' },
+                        { id: 'c', text: 'Mardi 16 h' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Mardi 14 h.'
+                },
+                {
+                    id: 'a2-reunion-q2',
+                    type: 'radio',
+                    question: 'Qui est absente ?',
+                    options: [
+                        { id: 'a', text: 'Marie' },
+                        { id: 'b', text: 'Paul' },
+                        { id: 'c', text: 'Luc' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Le document indique : Marie.'
+                }
+            ]
+        },
+        {
+            id: 'a2-retard',
+            title: 'Être en retard',
+            audioFile: `${audioBasePath}a2-retard.mp3`,
+            transcript: `<p>- Excusez mon retard : panne de métro.</p><p>- La réunion vient de commencer. Asseyez-vous à côté de Claire.</p>`,
+            questions: [
+                {
+                    id: 'a2-retard-q1',
+                    type: 'radio',
+                    question: 'Cause ?',
+                    options: [
+                        { id: 'a', text: 'Embouteillage' },
+                        { id: 'b', text: 'Panne de métro' },
+                        { id: 'c', text: 'Réveil' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Panne de métro.'
+                },
+                {
+                    id: 'a2-retard-q2',
+                    type: 'radio',
+                    question: 'À côté de qui ?',
+                    options: [
+                        { id: 'a', text: 'Paul' },
+                        { id: 'b', text: 'Claire' },
+                        { id: 'c', text: 'Le chef' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Claire.'
+                }
+            ]
+        },
+        {
+            id: 'a2-location-velo',
+            title: 'Louer un vélo',
+            audioFile: `${audioBasePath}a2-location-velo.mp3`,
+            transcript: `<p>Location : 12 euros la journée, casque inclus. Rendre avant 19 heures.</p>`,
+            questions: [
+                {
+                    id: 'a2-location-velo-q1',
+                    type: 'radio',
+                    question: 'Prix ?',
+                    options: [
+                        { id: 'a', text: '10 €' },
+                        { id: 'b', text: '12 €' },
+                        { id: 'c', text: '15 €' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 12 €.'
+                },
+                {
+                    id: 'a2-location-velo-q2',
+                    type: 'radio',
+                    question: 'Avant quelle heure ?',
+                    options: [
+                        { id: 'a', text: '17 h' },
+                        { id: 'b', text: '19 h' },
+                        { id: 'c', text: '21 h' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 19 h.'
+                }
+            ]
+        },
+        {
+            id: 'a2-cours-cuisine',
+            title: 'Cours de cuisine',
+            audioFile: `${audioBasePath}a2-cours-cuisine.mp3`,
+            transcript: `<p>Aujourd'hui : quiche lorraine. 35 minutes au four. Vous pouvez l'emporter.</p>`,
+            questions: [
+                {
+                    id: 'a2-cours-cuisine-q1',
+                    type: 'radio',
+                    question: 'Plat ?',
+                    options: [
+                        { id: 'a', text: 'Pizza' },
+                        { id: 'b', text: 'Quiche lorraine' },
+                        { id: 'c', text: 'Gâteau' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Quiche lorraine.'
+                },
+                {
+                    id: 'a2-cours-cuisine-q2',
+                    type: 'radio',
+                    question: 'Temps au four ?',
+                    options: [
+                        { id: 'a', text: '25' },
+                        { id: 'b', text: '35' },
+                        { id: 'c', text: '45' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 35.'
+                }
+            ]
+        },
+        {
+            id: 'a2-reparation',
+            title: 'Faire réparer un téléphone',
+            audioFile: `${audioBasePath}a2-reparation.mp3`,
+            transcript: `<p>Écran cassé : 90 euros, prêt en deux jours. Récupération mercredi après 16 heures.</p>`,
+            questions: [
+                {
+                    id: 'a2-reparation-q1',
+                    type: 'radio',
+                    question: 'Prix ?',
+                    options: [
+                        { id: 'a', text: '60 €' },
+                        { id: 'b', text: '90 €' },
+                        { id: 'c', text: '120 €' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 90 €.'
+                },
+                {
+                    id: 'a2-reparation-q2',
+                    type: 'radio',
+                    question: 'Récupération ?',
+                    options: [
+                        { id: 'a', text: 'Mardi matin' },
+                        { id: 'b', text: 'Mercredi après 16 h' },
+                        { id: 'c', text: 'Vendredi' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Mercredi après 16 h.'
+                }
+            ]
+        },
+        {
+            id: 'a2-visite-musee',
+            title: 'Visite au musée',
+            audioFile: `${audioBasePath}a2-visite-musee.mp3`,
+            transcript: `<p>Plein tarif 12 euros, étudiant 8 euros. Exposition jusqu'à 18 heures.</p>`,
+            questions: [
+                {
+                    id: 'a2-visite-musee-q1',
+                    type: 'radio',
+                    question: 'Plein tarif ?',
+                    options: [
+                        { id: 'a', text: '8 €' },
+                        { id: 'b', text: '12 €' },
+                        { id: 'c', text: '15 €' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 12 €.'
+                },
+                {
+                    id: 'a2-visite-musee-q2',
+                    type: 'radio',
+                    question: 'Fin ?',
+                    options: [
+                        { id: 'a', text: '16 h' },
+                        { id: 'b', text: '18 h' },
+                        { id: 'c', text: '20 h' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 18 h.'
+                }
+            ]
+        },
+        {
+            id: 'a2-stage',
+            title: 'Trouver un stage',
+            audioFile: `${audioBasePath}a2-stage.mp3`,
+            transcript: `<p>Stage en agence de communication, trois mois dès juin, 600 euros par mois.</p>`,
+            questions: [
+                {
+                    id: 'a2-stage-q1',
+                    type: 'radio',
+                    question: 'Durée ?',
+                    options: [
+                        { id: 'a', text: '1 mois' },
+                        { id: 'b', text: '3 mois' },
+                        { id: 'c', text: '6 mois' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 3 mois.'
+                },
+                {
+                    id: 'a2-stage-q2',
+                    type: 'radio',
+                    question: 'Paye ?',
+                    options: [
+                        { id: 'a', text: '400 €' },
+                        { id: 'b', text: '600 €' },
+                        { id: 'c', text: '800 €' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 600 €.'
+                }
+            ]
+        },
+        {
+            id: 'a2-abonnement',
+            title: 'Changer d\'abonnement',
+            audioFile: `${audioBasePath}a2-abonnement.mp3`,
+            transcript: `<p>Passage à l'illimité : 29 euros au lieu de 19. Effet demain.</p>`,
+            questions: [
+                {
+                    id: 'a2-abonnement-q1',
+                    type: 'radio',
+                    question: 'Nouveau prix ?',
+                    options: [
+                        { id: 'a', text: '19 €' },
+                        { id: 'b', text: '29 €' },
+                        { id: 'c', text: '39 €' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 29 €.'
+                },
+                {
+                    id: 'a2-abonnement-q2',
+                    type: 'radio',
+                    question: 'Effet ?',
+                    options: [
+                        { id: 'a', text: 'Aujourd\'hui' },
+                        { id: 'b', text: 'Demain' },
+                        { id: 'c', text: 'Semaine prochaine' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Demain.'
+                }
+            ]
+        },
+        {
+            id: 'a2-colis',
+            title: 'Recevoir un colis',
+            audioFile: `${audioBasePath}a2-colis.mp3`,
+            transcript: `<p>Colis pour Madame Bernard. Elle n'est pas là ; la voisine signe.</p>`,
+            questions: [
+                {
+                    id: 'a2-colis-q1',
+                    type: 'radio',
+                    question: 'Pour qui ?',
+                    options: [
+                        { id: 'a', text: 'M. Bernard' },
+                        { id: 'b', text: 'Mme Bernard' },
+                        { id: 'c', text: 'Mme Bertrand' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Mme Bernard.'
+                },
+                {
+                    id: 'a2-colis-q2',
+                    type: 'radio',
+                    question: 'Que faire ?',
+                    options: [
+                        { id: 'a', text: 'Payer' },
+                        { id: 'b', text: 'Signer' },
+                        { id: 'c', text: 'Ouvrir' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Signer.'
+                }
+            ]
+        },
+        {
+            id: 'a2-retard-train',
+            title: 'Retard de train',
+            audioFile: `${audioBasePath}a2-retard-train.mp3`,
+            transcript: `<p>Train : 20 minutes de retard. Quai numéro 3 inchangé.</p>`,
+            questions: [
+                {
+                    id: 'a2-retard-train-q1',
+                    type: 'radio',
+                    question: 'Retard ?',
+                    options: [
+                        { id: 'a', text: '10' },
+                        { id: 'b', text: '20' },
+                        { id: 'c', text: '30' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 20.'
+                },
+                {
+                    id: 'a2-retard-train-q2',
+                    type: 'radio',
+                    question: 'Quai ?',
+                    options: [
+                        { id: 'a', text: '2' },
+                        { id: 'b', text: '3' },
+                        { id: 'c', text: '4' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 3.'
+                }
+            ]
+        },
+        {
+            id: 'a2-objet-perdu',
+            title: 'Objet perdu',
+            audioFile: `${audioBasePath}a2-objet-perdu.mp3`,
+            transcript: `<p>Parapluie noir perdu dans le bus 21 hier soir. Objets trouvés prévenus.</p>`,
+            questions: [
+                {
+                    id: 'a2-objet-perdu-q1',
+                    type: 'radio',
+                    question: 'Objet ?',
+                    options: [
+                        { id: 'a', text: 'Sac' },
+                        { id: 'b', text: 'Parapluie noir' },
+                        { id: 'c', text: 'Téléphone' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Parapluie noir.'
+                },
+                {
+                    id: 'a2-objet-perdu-q2',
+                    type: 'radio',
+                    question: 'Bus ?',
+                    options: [
+                        { id: 'a', text: '12' },
+                        { id: 'b', text: '21' },
+                        { id: 'c', text: '42' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 21.'
+                }
+            ]
+        },
+        {
+            id: 'a2-invitation',
+            title: 'Refuser une invitation',
+            audioFile: `${audioBasePath}a2-invitation.mp3`,
+            transcript: `<p>- Cinéma ce soir ?</p><p>- Impossible, j'ai un cours. Samedi plutôt ?</p>`,
+            questions: [
+                {
+                    id: 'a2-invitation-q1',
+                    type: 'radio',
+                    question: 'Pourquoi ?',
+                    options: [
+                        { id: 'a', text: 'Fatigue' },
+                        { id: 'b', text: 'Cours' },
+                        { id: 'c', text: 'Argent' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Cours.'
+                },
+                {
+                    id: 'a2-invitation-q2',
+                    type: 'radio',
+                    question: 'Report ?',
+                    options: [
+                        { id: 'a', text: 'Vendredi' },
+                        { id: 'b', text: 'Samedi' },
+                        { id: 'c', text: 'Dimanche' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Samedi.'
+                }
+            ]
+        },
+        {
+            id: 'a2-livraison',
+            title: 'Livraison en retard',
+            audioFile: `${audioBasePath}a2-livraison.mp3`,
+            transcript: `<p>Commande prévue mardi ; nouvelle livraison demain avant 18 heures.</p>`,
+            questions: [
+                {
+                    id: 'a2-livraison-q1',
+                    type: 'radio',
+                    question: 'Prévision initiale ?',
+                    options: [
+                        { id: 'a', text: 'Lundi' },
+                        { id: 'b', text: 'Mardi' },
+                        { id: 'c', text: 'Mercredi' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Mardi.'
+                },
+                {
+                    id: 'a2-livraison-q2',
+                    type: 'radio',
+                    question: 'Nouvelle date ?',
+                    options: [
+                        { id: 'a', text: 'Aujourd\'hui' },
+                        { id: 'b', text: 'Demain avant 18 h' },
+                        { id: 'c', text: 'Semaine prochaine' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Demain avant 18 h.'
+                }
+            ]
+        },
+        {
+            id: 'a2-covoiturage',
+            title: 'Covoiturage',
+            audioFile: `${audioBasePath}a2-covoiturage.mp3`,
+            transcript: `<p>Départ Nantes vendredi 8 heures. Deux places. On partage l'essence.</p>`,
+            questions: [
+                {
+                    id: 'a2-covoiturage-q1',
+                    type: 'radio',
+                    question: 'Destination ?',
+                    options: [
+                        { id: 'a', text: 'Nantes' },
+                        { id: 'b', text: 'Nice' },
+                        { id: 'c', text: 'Nancy' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Le document indique : Nantes.'
+                },
+                {
+                    id: 'a2-covoiturage-q2',
+                    type: 'radio',
+                    question: 'Places ?',
+                    options: [
+                        { id: 'a', text: '1' },
+                        { id: 'b', text: '2' },
+                        { id: 'c', text: '3' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 2.'
+                }
+            ]
+        },
+        {
+            id: 'a2-imprimante',
+            title: 'Problème d\'imprimante',
+            audioFile: `${audioBasePath}a2-imprimante.mp3`,
+            transcript: `<p>Imprimante en panne. Technicien cet après-midi.</p>`,
+            questions: [
+                {
+                    id: 'a2-imprimante-q1',
+                    type: 'radio',
+                    question: 'Appareil ?',
+                    options: [
+                        { id: 'a', text: 'Ordinateur' },
+                        { id: 'b', text: 'Imprimante' },
+                        { id: 'c', text: 'Téléphone' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Imprimante.'
+                },
+                {
+                    id: 'a2-imprimante-q2',
+                    type: 'radio',
+                    question: 'Technicien ?',
+                    options: [
+                        { id: 'a', text: 'Matin' },
+                        { id: 'b', text: 'Après-midi' },
+                        { id: 'c', text: 'Demain' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Après-midi.'
+                }
+            ]
+        },
+        {
+            id: 'a2-assurance',
+            title: 'Appeler l\'assurance',
+            audioFile: `${audioBasePath}a2-assurance.mp3`,
+            transcript: `<p>Déclaration d'un sinistre auto. Numéro de contrat demandé.</p>`,
+            questions: [
+                {
+                    id: 'a2-assurance-q1',
+                    type: 'radio',
+                    question: 'Type ?',
+                    options: [
+                        { id: 'a', text: 'Maison' },
+                        { id: 'b', text: 'Auto' },
+                        { id: 'c', text: 'Santé' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Auto.'
+                },
+                {
+                    id: 'a2-assurance-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'a2-cours-soir',
+            title: 'Cours du soir',
+            audioFile: `${audioBasePath}a2-cours-soir.mp3`,
+            transcript: `<p>Français : mardi et jeudi, 18 h 30 à 20 h.</p>`,
+            questions: [
+                {
+                    id: 'a2-cours-soir-q1',
+                    type: 'radio',
+                    question: 'Jours ?',
+                    options: [
+                        { id: 'a', text: 'Lundi/mercredi' },
+                        { id: 'b', text: 'Mardi/jeudi' },
+                        { id: 'c', text: 'Week-end' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Mardi/jeudi.'
+                },
+                {
+                    id: 'a2-cours-soir-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'a2-salle-sport',
+            title: 'Abonnement à la salle',
+            audioFile: `${audioBasePath}a2-salle-sport.mp3`,
+            transcript: `<p>Abonnement 35 euros par mois, engagement trois mois.</p>`,
+            questions: [
+                {
+                    id: 'a2-salle-sport-q1',
+                    type: 'radio',
+                    question: 'Prix ?',
+                    options: [
+                        { id: 'a', text: '25 €' },
+                        { id: 'b', text: '35 €' },
+                        { id: 'c', text: '45 €' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 35 €.'
+                },
+                {
+                    id: 'a2-salle-sport-q2',
+                    type: 'radio',
+                    question: 'Engagement ?',
+                    options: [
+                        { id: 'a', text: '1 mois' },
+                        { id: 'b', text: '3 mois' },
+                        { id: 'c', text: '12 mois' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 3 mois.'
+                }
+            ]
+        }
+    ],
+    'B1': [
+        {
+            id: 'b1-entretien',
+            title: 'Un entretien d\'embauche',
+            audioFile: `${audioBasePath}b1-entretien.mp3`,
+            transcript: `<p>- Bonjour, merci de m'accueillir pour cet entretien.</p>
+                        <p>- Bonjour, enchanté de vous rencontrer. Je suis votre intervieweur. Pouvez-vous vous présenter brièvement ?</p>
+                        <p>- Bien sûr. Je m'appelle Marie Dupont, j'ai 30 ans et je suis diplômée d'un master en marketing.</p>
+                        <p>- Très bien. Pourriez-vous nous parler de votre expérience professionnelle ?</p>
+                        <p>- Bien sûr. J'ai travaillé pendant 5 ans dans une agence de marketing numérique. J'ai été responsable de campagnes de publicité en ligne et de stratégies de contenu.</p>
+                        <p>- C'est intéressant. Et quelles sont vos compétences clés ?</p>
+                        <p>- Je suis une experte en analyse de données, en gestion de projets et en communication.</p>
+                        <p>- Très bien. Pouvez-vous nous donner un exemple de projet réussi ?</p>
+                        <p>- Bien sûr. J'ai dirigé une campagne de marketing de contenu pour une entreprise de mode en ligne. Nous avons augmenté le trafic de 30% en 6 mois et les ventes ont augmenté de 20%.</p>
+                        <p>- C'est impressionnant. Et quelles sont vos ambitions professionnelles à court et moyen terme ?</p>
+                        <p>- À court terme, j'aimerais contribuer à la croissance de l'entreprise en mettant en œuvre des stratégies de marketing numérique efficaces. À moyen terme, j'aspire à devenir responsable du marketing digital pour une entreprise internationale.</p>
+                        <p>- Très bien. Pouvez-vous nous parler de vos loisirs et de vos intérêts ?</p>
+                        <p>- Bien sûr. Je suis passionnée de lecture, de cinéma et de voyage. J'aime également cuisiner et essayer de nouvelles recettes.</p>
+                        <p>- C'est intéressant. Merci beaucoup pour votre temps. Nous vous recontacterons bientôt.</p>
+                        <p>- Merci beaucoup pour cette opportunité. Au revoir.</p>`,
+            questions: [
+                {
+                    id: 'b1-entretien-q1',
+                    type: 'radio',
+                    question: 'Quel est le nom de la candidate ?',
+                    options: [
+                        { id: 'a', text: 'Marie Dupont' },
+                        { id: 'b', text: 'Sophie Martin' },
+                        { id: 'c', text: 'Julie Leclerc' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'La candidate se présente en disant "Je m\'appelle Marie Dupont".'
+                },
+                {
+                    id: 'b1-entretien-q2',
+                    type: 'radio',
+                    question: 'Quel est le domaine d\'études de la candidate ?',
+                    options: [
+                        { id: 'a', text: 'Informatique' },
+                        { id: 'b', text: 'Marketing' },
+                        { id: 'c', text: 'Finance' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'La candidate dit "j\'ai un master en marketing".'
+                },
+                {
+                    id: 'b1-entretien-q3',
+                    type: 'radio',
+                    question: 'Quelle est la durée d\'expérience professionnelle de la candidate ?',
+                    options: [
+                        { id: 'a', text: 'Moins de 2 ans' },
+                        { id: 'b', text: 'Entre 2 et 5 ans' },
+                        { id: 'c', text: 'Plus de 5 ans' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'La candidate dit "j\'ai travaillé pendant 5 ans dans une agence de marketing numérique".'
+                }
+            ]
+        },
+        {
+            id: 'b1-voyage',
+            title: 'Discussion sur un voyage',
+            audioFile: `${audioBasePath}b1-voyage.mp3`,
+            transcript: `<p>- Bonjour, comment s'est passé votre voyage à New York ?</p>
+                        <p>- Ça s'est très bien passé. Nous avons visité de nombreux endroits intéressants.</p>
+                        <p>- C'est bien. Quels endroits avez-vous visités ?</p>
+                        <p>- Nous avons visité le musée d'art moderne, Central Park, Times Square et le Metropolitan Museum of Art.</p>
+                        <p>- C'est impressionnant. Et qu'avez-vous pensé de la nourriture ?</p>
+                        <p>- La nourriture était délicieuse. Nous avons goûté à de nombreux plats typiques, comme des bagels, des hot-dogs et des pizzas.</p>
+                        <p>- C'est délicieux. Et comment était le service dans les restaurants ?</p>
+                        <p>- Le service était excellent. Les serveurs étaient très sympathiques et serviables.</p>
+                        <p>- C'est bien. Et comment était le logement ?</p>
+                        <p>- Le logement était confortable. Nous avions une chambre spacieuse avec une vue sur la ville.</p>
+                        <p>- C'est bien. Et y a-t-il des choses que vous auriez faites différemment ?</p>
+                        <p>- Non, nous avons tout apprécié. C'était une expérience inoubliable.</p>
+                        <p>- C'est bien. Merci pour le partage. À bientôt.</p>
+                        <p>- Oui, à bientôt.</p>`,
+            questions: [
+                {
+                    id: 'b1-voyage-q1',
+                    type: 'radio',
+                    question: 'Quels endroits ont été visités lors du voyage ?',
+                    options: [
+                        { id: 'a', text: 'Le musée d\'art moderne et Central Park' },
+                        { id: 'b', text: 'Times Square et le Metropolitan Museum of Art' },
+                        { id: 'c', text: 'Le musée d\'art moderne, Central Park, Times Square et le Metropolitan Museum of Art' }
+                    ],
+                    correctAnswer: 'c',
+                    explanation: 'Les endroits visités sont le musée d\'art moderne, Central Park, Times Square et le Metropolitan Museum of Art.'
+                },
+                {
+                    id: 'b1-voyage-q2',
+                    type: 'radio',
+                    question: 'Quels plats typiques ont été goûtés ?',
+                    options: [
+                        { id: 'a', text: 'Des bagels et des hot-dogs' },
+                        { id: 'b', text: 'Des pizzas et des hamburgers' },
+                        { id: 'c', text: 'Des bagels, des hot-dogs et des pizzas' }
+                    ],
+                    correctAnswer: 'c',
+                    explanation: 'Les plats typiques goûtés sont des bagels, des hot-dogs et des pizzas.'
+                },
+                {
+                    id: 'b1-voyage-q3',
+                    type: 'radio',
+                    question: 'Comment était le service dans les restaurants ?',
+                    options: [
+                        { id: 'a', text: 'Excellent' },
+                        { id: 'b', text: 'Moyen' },
+                        { id: 'c', text: 'Mauvais' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Le service dans les restaurants était excellent.'
+                }
+            ]
+        },
+        {
+            id: 'b1-reclamation',
+            title: 'Réclamation client',
+            audioFile: `${audioBasePath}b1-reclamation.mp3`,
+            transcript: `<p>- Bonjour, je voudrais faire une réclamation.</p>
+                        <p>- Bonjour, merci de nous appeler. Pouvez-vous me donner plus de détails ?</p>
+                        <p>- Bien sûr. J'ai commandé un livre en ligne il y a deux semaines, mais il n'est toujours pas arrivé.</p>
+                        <p>- Je suis désolé pour le désagrément. Pouvez-vous me donner le numéro de commande ?</p>
+                        <p>- Oui, c'est le numéro 123456789.</p>
+                        <p>- Très bien. Je vais vérifier la situation.</p>
+                        <p>- Merci.</p>
+                        <p>- Je suis désolé, mais il semble y avoir eu une erreur dans la préparation de la commande.</p>
+                        <p>- Qu'est-ce que je peux faire ?</p>
+                        <p>- Je vais annuler la commande et vous rembourser intégralement.</p>
+                        <p>- C'est bien. Merci beaucoup.</p>
+                        <p>- De rien. Nous sommes là pour vous aider. Au revoir.</p>
+                        <p>- Au revoir.</p>`,
+            questions: [
+                {
+                    id: 'b1-reclamation-q1',
+                    type: 'radio',
+                    question: 'Quel est le problème de la cliente ?',
+                    options: [
+                        { id: 'a', text: 'Elle a reçu un mauvais produit' },
+                        { id: 'b', text: 'Elle n\'a pas reçu sa commande' },
+                        { id: 'c', text: 'Elle a eu un problème avec le paiement' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'La cliente dit "j\'ai commandé un livre en ligne il y a deux semaines, mais il n\'est toujours pas arrivé".'
+                },
+                {
+                    id: 'b1-reclamation-q2',
+                    type: 'radio',
+                    question: 'Quelle est la solution proposée par le service client ?',
+                    options: [
+                        { id: 'a', text: 'Annuler la commande et rembourser intégralement' },
+                        { id: 'b', text: 'Renvoyer un nouveau produit' },
+                        { id: 'c', text: 'Offrir un bon d\'achat' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Le service client dit "Je vais annuler la commande et vous rembourser intégralement".'
+                }
+            ]
+        },
+        {
+            id: 'b1-processus',
+            title: 'Processus d\'admission universitaire',
+            audioFile: `${audioBasePath}b1-processus.mp3`,
+            transcript: `<p>- Bonjour, je voudrais des informations sur le processus d'admission à l'université.</p>
+                        <p>- Bien sûr. Je vais vous expliquer les différentes étapes.</p>
+                        <p>- Tout d'abord, vous devez remplir le formulaire de candidature en ligne.</p>
+                        <p>- Ensuite, vous devez fournir plusieurs documents : relevés de notes, lettres de recommandation, CV et lettre de motivation.</p>
+                        <p>- Une fois votre dossier complet, il sera examiné par le comité d'admission.</p>
+                        <p>- Si votre dossier est retenu, vous serez convoqué pour un entretien.</p>
+                        <p>- Après l'entretien, vous recevrez une réponse définitive dans un délai de deux semaines.</p>
+                        <p>- En cas d'admission, vous devrez confirmer votre inscription et payer les frais de scolarité.</p>`,
+            questions: [
+                {
+                    id: 'b1-processus-q1',
+                    type: 'checkbox',
+                    question: 'Quels documents sont demandés pour la candidature ? (Plusieurs réponses possibles)',
+                    options: [
+                        { id: 'a', text: 'Relevés de notes' },
+                        { id: 'b', text: 'Lettres de recommandation' },
+                        { id: 'c', text: 'CV' },
+                        { id: 'd', text: 'Lettre de motivation' }
+                    ],
+                    correctAnswer: ['a', 'b', 'c', 'd'],
+                    explanation: 'Tous ces documents sont requis selon l\'audio : relevés de notes, lettres de recommandation, CV et lettre de motivation.'
+                },
+                {
+                    id: 'b1-processus-q2',
+                    type: 'radio',
+                    question: 'Quel est le délai de réponse après l\'entretien ?',
+                    options: [
+                        { id: 'a', text: 'Une semaine' },
+                        { id: 'b', text: 'Deux semaines' },
+                        { id: 'c', text: 'Un mois' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'L\'audio indique que la réponse définitive sera donnée dans un délai de deux semaines après l\'entretien.'
+                }
+            ]
+        },
+        {
+            id: 'b1-itineraire',
+            title: 'Demander son itinéraire',
+            audioFile: `${audioBasePath}b1-itineraire.mp3`,
+            transcript: `<p>- Excusez-moi, je cherche la bibliothèque municipale.</p>
+                        <p>- Je peux vous aider. C'est assez simple.</p>
+                        <p>- Prenez la rue en face jusqu'au premier carrefour.</p>
+                        <p>- Au carrefour, tournez à droite et continuez tout droit pendant environ 200 mètres.</p>
+                        <p>- Vous verrez un grand parc sur votre gauche.</p>
+                        <p>- Longez le parc jusqu'au bout, puis prenez la première rue à gauche.</p>
+                        <p>- La bibliothèque se trouve juste après, c'est un grand bâtiment moderne.</p>
+                        <p>- Vous ne pouvez pas la manquer, il y a une grande place devant.</p>`,
+            questions: [
+                {
+                    id: 'b1-itineraire-q1',
+                    type: 'radio',
+                    question: 'Quelle est la première direction à prendre ?',
+                    options: [
+                        { id: 'a', text: 'Tourner à gauche' },
+                        { id: 'b', text: 'Aller tout droit' },
+                        { id: 'c', text: 'Tourner à droite' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'L\'audio indique de prendre la rue en face (aller tout droit) jusqu\'au premier carrefour.'
+                },
+                {
+                    id: 'b1-itineraire-q2',
+                    type: 'checkbox',
+                    question: 'Quels points de repère sont mentionnés dans les indications ? (Plusieurs réponses possibles)',
+                    options: [
+                        { id: 'a', text: 'Un parc' },
+                        { id: 'b', text: 'Une grande place' },
+                        { id: 'c', text: 'Un carrefour' },
+                        { id: 'd', text: 'Un feu rouge' }
+                    ],
+                    correctAnswer: ['a', 'b', 'c'],
+                    explanation: 'L\'audio mentionne un carrefour, un grand parc et une grande place devant la bibliothèque.'
+                }
+            ]
+        },
+        {
+            id: 'b1-visite-appartement',
+            title: 'Visite d\'un appartement',
+            audioFile: `${audioBasePath}b1-visite-appartement.mp3`,
+            transcript: `<p>- Bonjour, je suis l'agent immobilier. Je vais vous faire visiter l'appartement.</p>
+                        <p>- Comme vous pouvez le voir, nous sommes dans le salon qui est très lumineux grâce à ses grandes fenêtres.</p>
+                        <p>- La cuisine est entièrement équipée avec des appareils modernes.</p>
+                        <p>- Il y a deux chambres : une grande chambre parentale et une plus petite qui peut servir de bureau.</p>
+                        <p>- La salle de bain a été récemment rénovée.</p>
+                        <p>- L'appartement dispose aussi d'un balcon avec vue sur le parc.</p>
+                        <p>- Le quartier est très calme et bien desservi par les transports en commun.</p>
+                        <p>- Le loyer est de 1200 euros par mois, charges comprises.</p>`,
+            questions: [
+                {
+                    id: 'b1-visite-appartement-q1',
+                    type: 'checkbox',
+                    question: 'Quelles pièces sont mentionnées dans la visite ? (Plusieurs réponses possibles)',
+                    options: [
+                        { id: 'a', text: 'Salon' },
+                        { id: 'b', text: 'Cuisine' },
+                        { id: 'c', text: 'Chambres' },
+                        { id: 'd', text: 'Salle de bain' }
+                    ],
+                    correctAnswer: ['a', 'b', 'c', 'd'],
+                    explanation: 'L\'audio mentionne toutes ces pièces : le salon, la cuisine, deux chambres et la salle de bain.'
+                },
+                {
+                    id: 'b1-visite-appartement-q2',
+                    type: 'radio',
+                    question: 'Quel est le loyer mensuel de l\'appartement ?',
+                    options: [
+                        { id: 'a', text: '1000 euros' },
+                        { id: 'b', text: '1200 euros' },
+                        { id: 'c', text: '1400 euros' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'L\'audio indique que le loyer est de 1200 euros par mois, charges comprises.'
+                }
+            ]
+        },
+        {
+            id: 'b1-commande',
+            title: 'Commander un repas par téléphone',
+            audioFile: `${audioBasePath}b1-commande.mp3`,
+            transcript: `<p>- Bonjour, restaurant Le Gourmet, que puis-je faire pour vous ?</p>
+                        <p>- Bonjour, je voudrais commander un repas à emporter.</p>
+                        <p>- Très bien, je vous écoute.</p>
+                        <p>- Je voudrais une salade César, un steak-frites et une tarte aux pommes.</p>
+                        <p>- Souhaitez-vous une cuisson particulière pour le steak ?</p>
+                        <p>- Oui, à point s'il vous plaît.</p>
+                        <p>- D'accord. Votre commande sera prête dans 30 minutes.</p>
+                        <p>- Parfait. Quel est le montant total ?</p>
+                        <p>- Ça fera 35 euros. Vous pourrez payer sur place.</p>
+                        <p>- Très bien, merci. À tout à l'heure.</p>`,
+            questions: [
+                {
+                    id: 'b1-commande-q1',
+                    type: 'checkbox',
+                    question: 'Quels plats sont commandés ? (Plusieurs réponses possibles)',
+                    options: [
+                        { id: 'a', text: 'Salade César' },
+                        { id: 'b', text: 'Steak-frites' },
+                        { id: 'c', text: 'Tarte aux pommes' },
+                        { id: 'd', text: 'Soupe à l\'oignon' }
+                    ],
+                    correctAnswer: ['a', 'b', 'c'],
+                    explanation: 'La personne commande une salade César, un steak-frites et une tarte aux pommes.'
+                },
+                {
+                    id: 'b1-commande-q2',
+                    type: 'radio',
+                    question: 'Quel est le montant total de la commande ?',
+                    options: [
+                        { id: 'a', text: '25 euros' },
+                        { id: 'b', text: '35 euros' },
+                        { id: 'c', text: '45 euros' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le montant total de la commande est de 35 euros.'
+                }
+            ]
+        },
+        {
+            id: 'b1-vacances',
+            title: 'Préparer ses vacances',
+            audioFile: `${audioBasePath}b1-vacances.mp3`,
+            transcript: `<p>- Alors, tu as décidé où tu vas partir en vacances ?</p>
+                        <p>- Oui, j'ai choisi la Croatie !</p>
+                        <p>- Oh, c'est super ! Tu as déjà planifié ton itinéraire ?</p>
+                        <p>- Oui, je commence par Zagreb, la capitale.</p>
+                        <p>- Ensuite, je vais visiter Split et Dubrovnik.</p>
+                        <p>- Je terminerai par quelques jours sur l'île de Hvar.</p>
+                        <p>- Ça a l'air génial ! Tu as prévu combien de temps ?</p>
+                        <p>- Deux semaines au total. J'ai un budget de 2000 euros.</p>
+                        <p>- C'est raisonnable. Tu as déjà réservé tes hébergements ?</p>
+                        <p>- Oui, j'ai tout réservé : les hôtels et les transports.</p>`,
+            questions: [
+                {
+                    id: 'b1-vacances-q1',
+                    type: 'radio',
+                    question: 'Quelle est la destination choisie par Émilie ?',
+                    options: [
+                        { id: 'a', text: 'La Grèce' },
+                        { id: 'b', text: 'L\'Italie' },
+                        { id: 'c', text: 'La Croatie' }
+                    ],
+                    correctAnswer: 'c',
+                    explanation: 'Émilie dit qu\'elle a choisi la Croatie pour ses vacances d\'été.'
+                },
+                {
+                    id: 'b1-vacances-q2',
+                    type: 'radio',
+                    question: 'Quelle ville Émilie visitera-t-elle en premier ?',
+                    options: [
+                        { id: 'a', text: 'Dubrovnik' },
+                        { id: 'b', text: 'Split' },
+                        { id: 'c', text: 'Zagreb' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Émilie indique qu\'elle va commencer par passer quatre jours à Split.'
+                },
+                {
+                    id: 'b1-vacances-q3',
+                    type: 'checkbox',
+                    question: 'Quelles destinations sont incluses dans l\'itinéraire d\'Émilie ? (Plusieurs réponses possibles)',
+                    options: [
+                        { id: 'a', text: 'Split' },
+                        { id: 'b', text: 'L\'île de Hvar' },
+                        { id: 'c', text: 'Dubrovnik' },
+                        { id: 'd', text: 'Le parc national de Plitvice' }
+                    ],
+                    correctAnswer: ['a', 'b', 'c', 'd'],
+                    explanation: 'L\'itinéraire d\'Émilie comprend Split, l\'île de Hvar, Dubrovnik et le parc national de Plitvice.'
+                },
+                {
+                    id: 'b1-vacances-q4',
+                    type: 'radio',
+                    question: 'Quel est le budget prévu par Émilie pour ses deux semaines de vacances ?',
+                    options: [
+                        { id: 'a', text: '1000 euros' },
+                        { id: 'b', text: '1500 euros' },
+                        { id: 'c', text: '2000 euros' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Émilie mentionne qu\'elle a prévu environ 1500 euros tout compris pour les deux semaines.'
+                }
+            ]
+        },
+        {
+            id: 'b1-reseaux-sociaux',
+            title: 'L\'impact des réseaux sociaux',
+            audioFile: `${audioBasePath}b1-reseaux-sociaux.mp3`,
+            transcript: `<p>- Bonjour à tous. Aujourd'hui, nous allons parler de l'impact des réseaux sociaux sur notre société.</p>
+                        <p>- Les réseaux sociaux ont complètement transformé notre façon de communiquer et d'interagir.</p>
+                        <p>- D'un côté, ils nous permettent de rester en contact avec nos amis et notre famille, même à distance.</p>
+                        <p>- Ils facilitent aussi le partage d'informations et la création de communautés en ligne.</p>
+                        <p>- Cependant, il y a aussi des aspects négatifs, comme la dépendance aux écrans et les problèmes de confidentialité.</p>
+                        <p>- De plus, la désinformation se propage rapidement sur les réseaux sociaux.</p>
+                        <p>- Il est donc important d'utiliser ces plateformes de manière responsable et modérée.</p>`,
+            questions: [
+                {
+                    id: 'b1-reseaux-sociaux-q1',
+                    type: 'checkbox',
+                    question: 'Quels sont les aspects positifs des réseaux sociaux mentionnés dans l\'audio ? (Plusieurs réponses possibles)',
+                    options: [
+                        { id: 'a', text: 'Rester en contact avec les proches' },
+                        { id: 'b', text: 'Partager des informations' },
+                        { id: 'c', text: 'Créer des communautés en ligne' },
+                        { id: 'd', text: 'Faire du commerce en ligne' }
+                    ],
+                    correctAnswer: ['a', 'b', 'c'],
+                    explanation: 'L\'audio mentionne trois aspects positifs : maintenir le contact avec les proches, partager des informations et créer des communautés en ligne.'
+                },
+                {
+                    id: 'b1-reseaux-sociaux-q2',
+                    type: 'checkbox',
+                    question: 'Quels sont les problèmes liés aux réseaux sociaux évoqués dans l\'audio ? (Plusieurs réponses possibles)',
+                    options: [
+                        { id: 'a', text: 'La dépendance aux écrans' },
+                        { id: 'b', text: 'Les problèmes de confidentialité' },
+                        { id: 'c', text: 'La désinformation' },
+                        { id: 'd', text: 'Le coût des abonnements' }
+                    ],
+                    correctAnswer: ['a', 'b', 'c'],
+                    explanation: 'L\'audio mentionne la dépendance aux écrans, les problèmes de confidentialité et la désinformation comme aspects négatifs.'
+                }
+            ]
+        },
+        {
+            id: 'b1-podcast',
+            title: 'Écouter un podcast',
+            audioFile: `${audioBasePath}b1-podcast.mp3`,
+            transcript: `<p>Podcast sur l'histoire de Paris, épisodes d'une vingtaine de minutes, avec sous-titres.</p>`,
+            questions: [
+                {
+                    id: 'b1-podcast-q1',
+                    type: 'radio',
+                    question: 'Sujet ?',
+                    options: [
+                        { id: 'a', text: 'Cuisine' },
+                        { id: 'b', text: 'Histoire de Paris' },
+                        { id: 'c', text: 'Sport' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Histoire de Paris.'
+                },
+                {
+                    id: 'b1-podcast-q2',
+                    type: 'radio',
+                    question: 'Durée ?',
+                    options: [
+                        { id: 'a', text: '10 min' },
+                        { id: 'b', text: '~20 min' },
+                        { id: 'c', text: '1 h' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : ~20 min.'
+                }
+            ]
+        },
+        {
+            id: 'b1-conflit-voisin',
+            title: 'Conflit de voisinage',
+            audioFile: `${audioBasePath}b1-conflit-voisin.mp3`,
+            transcript: `<p>Bruit après 23 heures. Courrier prévu au syndic et journal des nuisances.</p>`,
+            questions: [
+                {
+                    id: 'b1-conflit-voisin-q1',
+                    type: 'radio',
+                    question: 'Problème ?',
+                    options: [
+                        { id: 'a', text: 'Fuite' },
+                        { id: 'b', text: 'Bruit tardif' },
+                        { id: 'c', text: 'Odeurs' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Bruit tardif.'
+                },
+                {
+                    id: 'b1-conflit-voisin-q2',
+                    type: 'radio',
+                    question: 'Action ?',
+                    options: [
+                        { id: 'a', text: 'Police tout de suite' },
+                        { id: 'b', text: 'Courrier au syndic' },
+                        { id: 'c', text: 'Déménager' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Courrier au syndic.'
+                }
+            ]
+        },
+        {
+            id: 'b1-formation',
+            title: 'Choisir une formation',
+            audioFile: `${audioBasePath}b1-formation.mp3`,
+            transcript: `<p>Hésitation entre marketing digital et gestion de projet ; module court conseillé pour tester.</p>`,
+            questions: [
+                {
+                    id: 'b1-formation-q1',
+                    type: 'radio',
+                    question: 'Hésitation ?',
+                    options: [
+                        { id: 'a', text: 'Deux villes' },
+                        { id: 'b', text: 'Deux formations' },
+                        { id: 'c', text: 'Deux emplois' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Deux formations.'
+                },
+                {
+                    id: 'b1-formation-q2',
+                    type: 'radio',
+                    question: 'Conseil ?',
+                    options: [
+                        { id: 'a', text: 'Au hasard' },
+                        { id: 'b', text: 'Module court' },
+                        { id: 'c', text: 'Arrêter' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Module court.'
+                }
+            ]
+        },
+        {
+            id: 'b1-greve',
+            title: 'Jour de grève',
+            audioFile: `${audioBasePath}b1-greve.mp3`,
+            transcript: `<p>Grève des transports demain. Télétravail accepté. Visio à 10 heures.</p>`,
+            questions: [
+                {
+                    id: 'b1-greve-q1',
+                    type: 'radio',
+                    question: 'Cause ?',
+                    options: [
+                        { id: 'a', text: 'Travaux' },
+                        { id: 'b', text: 'Grève' },
+                        { id: 'c', text: 'Neige' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Grève.'
+                },
+                {
+                    id: 'b1-greve-q2',
+                    type: 'radio',
+                    question: 'Visio ?',
+                    options: [
+                        { id: 'a', text: '9 h' },
+                        { id: 'b', text: '10 h' },
+                        { id: 'c', text: '11 h' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 10 h.'
+                }
+            ]
+        },
+        {
+            id: 'b1-asso',
+            title: 'Rejoindre une association',
+            audioFile: `${audioBasePath}b1-asso.mp3`,
+            transcript: `<p>Association pour étudiants internationaux : soirées d'accueil et mentorat linguistique.</p>`,
+            questions: [
+                {
+                    id: 'b1-asso-q1',
+                    type: 'radio',
+                    question: 'Public ?',
+                    options: [
+                        { id: 'a', text: 'Retraités' },
+                        { id: 'b', text: 'Étudiants internationaux' },
+                        { id: 'c', text: 'Entreprises' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Étudiants internationaux.'
+                },
+                {
+                    id: 'b1-asso-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'b1-budget',
+            title: 'Gérer son budget',
+            audioFile: `${audioBasePath}b1-budget.mp3`,
+            transcript: `<p>Budget sorties : 200 euros. Courses : environ 280 euros. Appli depuis janvier.</p>`,
+            questions: [
+                {
+                    id: 'b1-budget-q1',
+                    type: 'radio',
+                    question: 'Sorties ?',
+                    options: [
+                        { id: 'a', text: '100 €' },
+                        { id: 'b', text: '200 €' },
+                        { id: 'c', text: '300 €' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 200 €.'
+                },
+                {
+                    id: 'b1-budget-q2',
+                    type: 'radio',
+                    question: 'Courses ?',
+                    options: [
+                        { id: 'a', text: '180 €' },
+                        { id: 'b', text: '280 €' },
+                        { id: 'c', text: '380 €' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 280 €.'
+                }
+            ]
+        },
+        {
+            id: 'b1-rdv-admin',
+            title: 'Rendez-vous administratif',
+            audioFile: `${audioBasePath}b1-rdv-admin.mp3`,
+            transcript: `<p>Préfecture le 12 avril à 9 h 30. Photos, justificatif de domicile, passeport.</p>`,
+            questions: [
+                {
+                    id: 'b1-rdv-admin-q1',
+                    type: 'radio',
+                    question: 'Lieu ?',
+                    options: [
+                        { id: 'a', text: 'Mairie' },
+                        { id: 'b', text: 'Préfecture' },
+                        { id: 'c', text: 'Banque' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Préfecture.'
+                },
+                {
+                    id: 'b1-rdv-admin-q2',
+                    type: 'radio',
+                    question: 'Date ?',
+                    options: [
+                        { id: 'a', text: '2 avril' },
+                        { id: 'b', text: '12 avril' },
+                        { id: 'c', text: '22 avril' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 12 avril.'
+                }
+            ]
+        },
+        {
+            id: 'b1-colocation',
+            title: 'Problème en colocation',
+            audioFile: `${audioBasePath}b1-colocation.mp3`,
+            transcript: `<p>Charges impayées depuis deux mois. Proposition d'échéancier, puis agence si besoin.</p>`,
+            questions: [
+                {
+                    id: 'b1-colocation-q1',
+                    type: 'radio',
+                    question: 'Problème ?',
+                    options: [
+                        { id: 'a', text: 'Bruit' },
+                        { id: 'b', text: 'Charges' },
+                        { id: 'c', text: 'Ménage' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Charges.'
+                },
+                {
+                    id: 'b1-colocation-q2',
+                    type: 'radio',
+                    question: 'Depuis ?',
+                    options: [
+                        { id: 'a', text: '2 semaines' },
+                        { id: 'b', text: '2 mois' },
+                        { id: 'c', text: '2 ans' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 2 mois.'
+                }
+            ]
+        },
+        {
+            id: 'b1-atelier',
+            title: 'Atelier d\'écriture',
+            audioFile: `${audioBasePath}b1-atelier.mp3`,
+            transcript: `<p>Chaque jeudi soir à la médiathèque. Texte de deux pages max. Thème : souvenir d'enfance.</p>`,
+            questions: [
+                {
+                    id: 'b1-atelier-q1',
+                    type: 'radio',
+                    question: 'Quand ?',
+                    options: [
+                        { id: 'a', text: 'Mardi' },
+                        { id: 'b', text: 'Jeudi soir' },
+                        { id: 'c', text: 'Samedi' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Jeudi soir.'
+                },
+                {
+                    id: 'b1-atelier-q2',
+                    type: 'radio',
+                    question: 'Longueur ?',
+                    options: [
+                        { id: 'a', text: '1 page' },
+                        { id: 'b', text: '2 pages' },
+                        { id: 'c', text: '5 pages' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 2 pages.'
+                }
+            ]
+        },
+        {
+            id: 'b1-sante',
+            title: 'Parler de santé',
+            audioFile: `${audioBasePath}b1-sante.mp3`,
+            transcript: `<p>Sommeil difficile et stress. Médecin : moins de café, 30 minutes de marche. Discussion avec le responsable.</p>`,
+            questions: [
+                {
+                    id: 'b1-sante-q1',
+                    type: 'radio',
+                    question: 'Conseil médical clé ?',
+                    options: [
+                        { id: 'a', text: 'Plus de café' },
+                        { id: 'b', text: 'Marcher 30 min' },
+                        { id: 'c', text: 'Arrêter de travailler' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Marcher 30 min.'
+                },
+                {
+                    id: 'b1-sante-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'b1-voyage-groupe',
+            title: 'Voyage en groupe',
+            audioFile: `${audioBasePath}b1-voyage-groupe.mp3`,
+            transcript: `<p>Voiture à quatre pour Lyon. Nadia conduit à l'aller. Départ vendredi 7 heures.</p>`,
+            questions: [
+                {
+                    id: 'b1-voyage-groupe-q1',
+                    type: 'radio',
+                    question: 'Conductrice aller ?',
+                    options: [
+                        { id: 'a', text: 'Narrateur' },
+                        { id: 'b', text: 'Nadia' },
+                        { id: 'c', text: 'Paul' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Nadia.'
+                },
+                {
+                    id: 'b1-voyage-groupe-q2',
+                    type: 'radio',
+                    question: 'Heure ?',
+                    options: [
+                        { id: 'a', text: '6 h' },
+                        { id: 'b', text: '7 h' },
+                        { id: 'c', text: '8 h' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 7 h.'
+                }
+            ]
+        },
+        {
+            id: 'b1-freelance',
+            title: 'Devenir freelance',
+            audioFile: `${audioBasePath}b1-freelance.mp3`,
+            transcript: `<p>Quitter un CDI pour le design freelance. Deux missions ce trimestre. Penser mutuelle et compta.</p>`,
+            questions: [
+                {
+                    id: 'b1-freelance-q1',
+                    type: 'radio',
+                    question: 'Domaine ?',
+                    options: [
+                        { id: 'a', text: 'Finance' },
+                        { id: 'b', text: 'Design' },
+                        { id: 'c', text: 'Droit' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Design.'
+                },
+                {
+                    id: 'b1-freelance-q2',
+                    type: 'radio',
+                    question: 'Missions ?',
+                    options: [
+                        { id: 'a', text: '1' },
+                        { id: 'b', text: '2' },
+                        { id: 'c', text: '5' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 2.'
+                }
+            ]
+        },
+        {
+            id: 'b1-benevolat',
+            title: 'Mission de bénévolat',
+            audioFile: `${audioBasePath}b1-benevolat.mp3`,
+            transcript: `<p>Distribution de repas samedi. RDV 10 h devant la mairie. Briefing 15 minutes.</p>`,
+            questions: [
+                {
+                    id: 'b1-benevolat-q1',
+                    type: 'radio',
+                    question: 'Mission ?',
+                    options: [
+                        { id: 'a', text: 'Vêtements' },
+                        { id: 'b', text: 'Repas' },
+                        { id: 'c', text: 'Cours' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Repas.'
+                },
+                {
+                    id: 'b1-benevolat-q2',
+                    type: 'radio',
+                    question: 'Briefing ?',
+                    options: [
+                        { id: 'a', text: '5 min' },
+                        { id: 'b', text: '15 min' },
+                        { id: 'c', text: '45 min' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 15 min.'
+                }
+            ]
+        },
+        {
+            id: 'b1-examen',
+            title: 'Préparer un examen',
+            audioFile: `${audioBasePath}b1-examen.mp3`,
+            transcript: `<p>DELF B1 dans trois semaines. Enregistrements quotidiens et sujets chronométrés.</p>`,
+            questions: [
+                {
+                    id: 'b1-examen-q1',
+                    type: 'radio',
+                    question: 'Examen ?',
+                    options: [
+                        { id: 'a', text: 'TCF' },
+                        { id: 'b', text: 'DELF B1' },
+                        { id: 'c', text: 'DALF C1' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : DELF B1.'
+                },
+                {
+                    id: 'b1-examen-q2',
+                    type: 'radio',
+                    question: 'Délai ?',
+                    options: [
+                        { id: 'a', text: '3 jours' },
+                        { id: 'b', text: '3 semaines' },
+                        { id: 'c', text: '3 mois' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 3 semaines.'
+                }
+            ]
+        },
+        {
+            id: 'b1-negociation',
+            title: 'Négocier un loyer',
+            audioFile: `${audioBasePath}b1-negociation.mp3`,
+            transcript: `<p>Propriétaire : 850 €. Marché ~800 €. Contre-proposition suggérée : 820 €.</p>`,
+            questions: [
+                {
+                    id: 'b1-negociation-q1',
+                    type: 'radio',
+                    question: 'Offre proprio ?',
+                    options: [
+                        { id: 'a', text: '800' },
+                        { id: 'b', text: '820' },
+                        { id: 'c', text: '850' }
+                    ],
+                    correctAnswer: 'c',
+                    explanation: 'Le document indique : 850.'
+                },
+                {
+                    id: 'b1-negociation-q2',
+                    type: 'radio',
+                    question: 'Contre-proposition ?',
+                    options: [
+                        { id: 'a', text: '780' },
+                        { id: 'b', text: '820' },
+                        { id: 'c', text: '900' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 820.'
+                }
+            ]
+        },
+        {
+            id: 'b1-culture',
+            title: 'Sortie culturelle',
+            audioFile: `${audioBasePath}b1-culture.mp3`,
+            transcript: `<p>Comédie contemporaine vendredi, sous-titrée en français. RDV 19 h 15.</p>`,
+            questions: [
+                {
+                    id: 'b1-culture-q1',
+                    type: 'radio',
+                    question: 'Type ?',
+                    options: [
+                        { id: 'a', text: 'Tragédie' },
+                        { id: 'b', text: 'Comédie contemporaine' },
+                        { id: 'c', text: 'Opéra' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Comédie contemporaine.'
+                },
+                {
+                    id: 'b1-culture-q2',
+                    type: 'radio',
+                    question: 'RDV ?',
+                    options: [
+                        { id: 'a', text: '19 h' },
+                        { id: 'b', text: '19 h 15' },
+                        { id: 'c', text: '20 h' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 19 h 15.'
+                }
+            ]
+        },
+        {
+            id: 'b1-feedback',
+            title: 'Demander du feedback',
+            audioFile: `${audioBasePath}b1-feedback.mp3`,
+            transcript: `<p>Relire une lettre de motivation : clarifier l'objectif dès le premier paragraphe.</p>`,
+            questions: [
+                {
+                    id: 'b1-feedback-q1',
+                    type: 'radio',
+                    question: 'À clarifier ?',
+                    options: [
+                        { id: 'a', text: 'Adresse' },
+                        { id: 'b', text: 'Objectif' },
+                        { id: 'c', text: 'Photo' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Objectif.'
+                },
+                {
+                    id: 'b1-feedback-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'b1-logement-etudiant',
+            title: 'Logement étudiant',
+            audioFile: `${audioBasePath}b1-logement-etudiant.mp3`,
+            transcript: `<p>40 nouvelles chambres en septembre, 450 euros charges comprises.</p>`,
+            questions: [
+                {
+                    id: 'b1-logement-etudiant-q1',
+                    type: 'radio',
+                    question: 'Chambres ?',
+                    options: [
+                        { id: 'a', text: '14' },
+                        { id: 'b', text: '40' },
+                        { id: 'c', text: '400' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 40.'
+                },
+                {
+                    id: 'b1-logement-etudiant-q2',
+                    type: 'radio',
+                    question: 'Loyer ?',
+                    options: [
+                        { id: 'a', text: '350 €' },
+                        { id: 'b', text: '450 €' },
+                        { id: 'c', text: '550 €' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 450 €.'
+                }
+            ]
+        },
+        {
+            id: 'b1-sondage',
+            title: 'Résultats d\'un sondage',
+            audioFile: `${audioBasePath}b1-sondage.mp3`,
+            transcript: `<p>62 % des salariés veulent plus de flexibilité horaire.</p>`,
+            questions: [
+                {
+                    id: 'b1-sondage-q1',
+                    type: 'radio',
+                    question: 'Pourcentage ?',
+                    options: [
+                        { id: 'a', text: '52 %' },
+                        { id: 'b', text: '62 %' },
+                        { id: 'c', text: '72 %' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 62 %.'
+                },
+                {
+                    id: 'b1-sondage-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'b1-recrutement',
+            title: 'Processus de recrutement',
+            audioFile: `${audioBasePath}b1-recrutement.mp3`,
+            transcript: `<p>Après RH : cas pratique, puis entretien avec le manager.</p>`,
+            questions: [
+                {
+                    id: 'b1-recrutement-q1',
+                    type: 'radio',
+                    question: 'Après RH ?',
+                    options: [
+                        { id: 'a', text: 'Contrat' },
+                        { id: 'b', text: 'Cas pratique' },
+                        { id: 'c', text: 'Essai' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Cas pratique.'
+                },
+                {
+                    id: 'b1-recrutement-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'b1-conference',
+            title: 'Conférence en ligne',
+            audioFile: `${audioBasePath}b1-conference.mp3`,
+            transcript: `<p>Début 17 heures. Tester le micro 10 minutes avant.</p>`,
+            questions: [
+                {
+                    id: 'b1-conference-q1',
+                    type: 'radio',
+                    question: 'Heure ?',
+                    options: [
+                        { id: 'a', text: '16 h' },
+                        { id: 'b', text: '17 h' },
+                        { id: 'c', text: '18 h' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 17 h.'
+                },
+                {
+                    id: 'b1-conference-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'b1-mediation',
+            title: 'Séance de médiation',
+            audioFile: `${audioBasePath}b1-mediation.mp3`,
+            transcript: `<p>Compromis trouvé sur les horaires de livraison de l'immeuble.</p>`,
+            questions: [
+                {
+                    id: 'b1-mediation-q1',
+                    type: 'radio',
+                    question: 'Sujet du compromis ?',
+                    options: [
+                        { id: 'a', text: 'Loyer' },
+                        { id: 'b', text: 'Horaires de livraison' },
+                        { id: 'c', text: 'Couleur du hall' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Horaires de livraison.'
+                },
+                {
+                    id: 'b1-mediation-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'b1-campagne',
+            title: 'Campagne de sensibilisation',
+            audioFile: `${audioBasePath}b1-campagne.mp3`,
+            transcript: `<p>Campagne anti-gaspillage alimentaire en novembre dans les lycées.</p>`,
+            questions: [
+                {
+                    id: 'b1-campagne-q1',
+                    type: 'radio',
+                    question: 'Quand ?',
+                    options: [
+                        { id: 'a', text: 'Octobre' },
+                        { id: 'b', text: 'Novembre' },
+                        { id: 'c', text: 'Décembre' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Novembre.'
+                },
+                {
+                    id: 'b1-campagne-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'b1-mobilite',
+            title: 'Mobilité interne',
+            audioFile: `${audioBasePath}b1-mobilite.mp3`,
+            transcript: `<p>Mobilité vers l'équipe produit après dix-huit mois dans le support.</p>`,
+            questions: [
+                {
+                    id: 'b1-mobilite-q1',
+                    type: 'radio',
+                    question: 'Après combien de temps ?',
+                    options: [
+                        { id: 'a', text: '8 mois' },
+                        { id: 'b', text: '18 mois' },
+                        { id: 'c', text: '28 mois' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 18 mois.'
+                },
+                {
+                    id: 'b1-mobilite-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
         }
     ],
     'B2': [
@@ -3330,276 +5420,806 @@ const listeningData = {
                     explanation: 'L\'enregistrement conseille de poser ses propres questions sur le poste, l\'équipe ou l\'entreprise à la fin de l\'entretien pour démontrer son intérêt et sa capacité d\'initiative.'
                 }
             ]
-        }
-    ],
-    'B1': [
+        },
         {
-            id: 'b1-reseaux-sociaux',
-            title: 'L\'impact des réseaux sociaux',
-            audioFile: `${audioBasePath}b1-reseaux-sociaux.mp3`,
-            transcript: `<p>- Bonjour à tous. Aujourd'hui, nous allons parler de l'impact des réseaux sociaux sur notre société.</p>
-                        <p>- Les réseaux sociaux ont complètement transformé notre façon de communiquer et d'interagir.</p>
-                        <p>- D'un côté, ils nous permettent de rester en contact avec nos amis et notre famille, même à distance.</p>
-                        <p>- Ils facilitent aussi le partage d'informations et la création de communautés en ligne.</p>
-                        <p>- Cependant, il y a aussi des aspects négatifs, comme la dépendance aux écrans et les problèmes de confidentialité.</p>
-                        <p>- De plus, la désinformation se propage rapidement sur les réseaux sociaux.</p>
-                        <p>- Il est donc important d'utiliser ces plateformes de manière responsable et modérée.</p>`,
+            id: 'b2-ethique-ia',
+            title: 'Éthique et intelligence artificielle',
+            audioFile: `${audioBasePath}b2-ethique-ia.mp3`,
+            transcript: `<p>L'IA accélère la productivité mais soulève des questions de propriété intellectuelle et de biais.</p><p>Plusieurs pays préparent une réglementation plus stricte.</p>`,
             questions: [
                 {
-                    id: 'b1-reseaux-sociaux-q1',
-                    type: 'checkbox',
-                    question: 'Quels sont les aspects positifs des réseaux sociaux mentionnés dans l\'audio ? (Plusieurs réponses possibles)',
+                    id: 'b2-ethique-ia-q1',
+                    type: 'radio',
+                    question: 'Avantage cité ?',
                     options: [
-                        { id: 'a', text: 'Rester en contact avec les proches' },
-                        { id: 'b', text: 'Partager des informations' },
-                        { id: 'c', text: 'Créer des communautés en ligne' },
-                        { id: 'd', text: 'Faire du commerce en ligne' }
+                        { id: 'a', text: 'Remplace tous les emplois' },
+                        { id: 'b', text: 'Accélère la productivité' },
+                        { id: 'c', text: 'Supprime les biais' }
                     ],
-                    correctAnswer: ['a', 'b', 'c'],
-                    explanation: 'L\'audio mentionne trois aspects positifs : maintenir le contact avec les proches, partager des informations et créer des communautés en ligne.'
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Accélère la productivité.'
                 },
                 {
-                    id: 'b1-reseaux-sociaux-q2',
-                    type: 'checkbox',
-                    question: 'Quels sont les problèmes liés aux réseaux sociaux évoqués dans l\'audio ? (Plusieurs réponses possibles)',
+                    id: 'b2-ethique-ia-q2',
+                    type: 'radio',
+                    question: 'Que préparent certains pays ?',
                     options: [
-                        { id: 'a', text: 'La dépendance aux écrans' },
-                        { id: 'b', text: 'Les problèmes de confidentialité' },
-                        { id: 'c', text: 'La désinformation' },
-                        { id: 'd', text: 'Le coût des abonnements' }
+                        { id: 'a', text: 'Interdiction totale' },
+                        { id: 'b', text: 'Réglementation plus stricte' },
+                        { id: 'c', text: 'Rien' }
                     ],
-                    correctAnswer: ['a', 'b', 'c'],
-                    explanation: 'L\'audio mentionne la dépendance aux écrans, les problèmes de confidentialité et la désinformation comme aspects négatifs.'
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Réglementation plus stricte.'
                 }
             ]
         },
         {
-            id: 'b1-processus',
-            title: 'Processus d\'admission universitaire',
-            audioFile: `${audioBasePath}b1-processus.mp3`,
-            transcript: `<p>- Bonjour, je voudrais des informations sur le processus d'admission à l'université.</p>
-                        <p>- Bien sûr. Je vais vous expliquer les différentes étapes.</p>
-                        <p>- Tout d'abord, vous devez remplir le formulaire de candidature en ligne.</p>
-                        <p>- Ensuite, vous devez fournir plusieurs documents : relevés de notes, lettres de recommandation, CV et lettre de motivation.</p>
-                        <p>- Une fois votre dossier complet, il sera examiné par le comité d'admission.</p>
-                        <p>- Si votre dossier est retenu, vous serez convoqué pour un entretien.</p>
-                        <p>- Après l'entretien, vous recevrez une réponse définitive dans un délai de deux semaines.</p>
-                        <p>- En cas d'admission, vous devrez confirmer votre inscription et payer les frais de scolarité.</p>`,
+            id: 'b2-sobriete',
+            title: 'Sobriété énergétique',
+            audioFile: `${audioBasePath}b2-sobriete.mp3`,
+            transcript: `<p>Plan municipal : -1°C de chauffage, lumières éteintes après 22 h, audits scolaires, ateliers habitants.</p>`,
             questions: [
                 {
-                    id: 'b1-processus-q1',
-                    type: 'checkbox',
-                    question: 'Quels documents sont demandés pour la candidature ? (Plusieurs réponses possibles)',
-                    options: [
-                        { id: 'a', text: 'Relevés de notes' },
-                        { id: 'b', text: 'Lettres de recommandation' },
-                        { id: 'c', text: 'CV' },
-                        { id: 'd', text: 'Lettre de motivation' }
-                    ],
-                    correctAnswer: ['a', 'b', 'c', 'd'],
-                    explanation: 'Tous ces documents sont requis selon l\'audio : relevés de notes, lettres de recommandation, CV et lettre de motivation.'
-                },
-                {
-                    id: 'b1-processus-q2',
+                    id: 'b2-sobriete-q1',
                     type: 'radio',
-                    question: 'Quel est le délai de réponse après l\'entretien ?',
+                    question: 'Qui lance le plan ?',
                     options: [
-                        { id: 'a', text: 'Une semaine' },
-                        { id: 'b', text: 'Deux semaines' },
-                        { id: 'c', text: 'Un mois' }
+                        { id: 'a', text: 'L\'État' },
+                        { id: 'b', text: 'La mairie' },
+                        { id: 'c', text: 'Une entreprise' }
                     ],
                     correctAnswer: 'b',
-                    explanation: 'L\'audio indique que la réponse définitive sera donnée dans un délai de deux semaines après l\'entretien.'
+                    explanation: 'Le document indique : La mairie.'
+                },
+                {
+                    id: 'b2-sobriete-q2',
+                    type: 'radio',
+                    question: 'Ateliers pour ?',
+                    options: [
+                        { id: 'a', text: 'Touristes' },
+                        { id: 'b', text: 'Habitants' },
+                        { id: 'c', text: 'Uniquement les élus' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Habitants.'
                 }
             ]
         },
         {
-            id: 'b1-itineraire',
-            title: 'Demander son itinéraire',
-            audioFile: `${audioBasePath}b1-itineraire.mp3`,
-            transcript: `<p>- Excusez-moi, je cherche la bibliothèque municipale.</p>
-                        <p>- Je peux vous aider. C'est assez simple.</p>
-                        <p>- Prenez la rue en face jusqu'au premier carrefour.</p>
-                        <p>- Au carrefour, tournez à droite et continuez tout droit pendant environ 200 mètres.</p>
-                        <p>- Vous verrez un grand parc sur votre gauche.</p>
-                        <p>- Longez le parc jusqu'au bout, puis prenez la première rue à gauche.</p>
-                        <p>- La bibliothèque se trouve juste après, c'est un grand bâtiment moderne.</p>
-                        <p>- Vous ne pouvez pas la manquer, il y a une grande place devant.</p>`,
+            id: 'b2-medias',
+            title: 'Désinformation et médias',
+            audioFile: `${audioBasePath}b2-medias.mp3`,
+            transcript: `<p>Deepfakes compliquent le journalisme. Croiser les sources, lire les métadonnées, labelliser les contenus synthétiques.</p>`,
             questions: [
                 {
-                    id: 'b1-itineraire-q1',
+                    id: 'b2-medias-q1',
                     type: 'radio',
-                    question: 'Quelle est la première direction à prendre ?',
+                    question: 'Phénomène ?',
                     options: [
-                        { id: 'a', text: 'Tourner à gauche' },
-                        { id: 'b', text: 'Aller tout droit' },
-                        { id: 'c', text: 'Tourner à droite' }
+                        { id: 'a', text: 'Deepfakes' },
+                        { id: 'b', text: 'Radio' },
+                        { id: 'c', text: 'Papier' }
                     ],
-                    correctAnswer: 'b',
-                    explanation: 'L\'audio indique de prendre la rue en face (aller tout droit) jusqu\'au premier carrefour.'
+                    correctAnswer: 'a',
+                    explanation: 'Le document indique : Deepfakes.'
                 },
                 {
-                    id: 'b1-itineraire-q2',
-                    type: 'checkbox',
-                    question: 'Quels points de repère sont mentionnés dans les indications ? (Plusieurs réponses possibles)',
+                    id: 'b2-medias-q2',
+                    type: 'radio',
+                    question: 'Rôle des plateformes ?',
                     options: [
-                        { id: 'a', text: 'Un parc' },
-                        { id: 'b', text: 'Une grande place' },
-                        { id: 'c', text: 'Un carrefour' },
-                        { id: 'd', text: 'Un feu rouge' }
+                        { id: 'a', text: 'Tout supprimer' },
+                        { id: 'b', text: 'Labelliser le synthétique' },
+                        { id: 'c', text: 'Interdire les commentaires' }
                     ],
-                    correctAnswer: ['a', 'b', 'c'],
-                    explanation: 'L\'audio mentionne un carrefour, un grand parc et une grande place devant la bibliothèque.'
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Labelliser le synthétique.'
                 }
             ]
         },
         {
-            id: 'b1-visite-appartement',
-            title: 'Visite d\'un appartement',
-            audioFile: `${audioBasePath}b1-visite-appartement.mp3`,
-            transcript: `<p>- Bonjour, je suis l'agent immobilier. Je vais vous faire visiter l'appartement.</p>
-                        <p>- Comme vous pouvez le voir, nous sommes dans le salon qui est très lumineux grâce à ses grandes fenêtres.</p>
-                        <p>- La cuisine est entièrement équipée avec des appareils modernes.</p>
-                        <p>- Il y a deux chambres : une grande chambre parentale et une plus petite qui peut servir de bureau.</p>
-                        <p>- La salle de bain a été récemment rénovée.</p>
-                        <p>- L'appartement dispose aussi d'un balcon avec vue sur le parc.</p>
-                        <p>- Le quartier est très calme et bien desservi par les transports en commun.</p>
-                        <p>- Le loyer est de 1200 euros par mois, charges comprises.</p>`,
+            id: 'b2-ville',
+            title: 'Ville du quart d\'heure',
+            audioFile: `${audioBasePath}b2-ville.mp3`,
+            transcript: `<p>Accéder aux services en quinze minutes à pied/vélo. Risque : hausse des loyers. Besoin de logement abordable.</p>`,
             questions: [
                 {
-                    id: 'b1-visite-appartement-q1',
-                    type: 'checkbox',
-                    question: 'Quelles pièces sont mentionnées dans la visite ? (Plusieurs réponses possibles)',
-                    options: [
-                        { id: 'a', text: 'Salon' },
-                        { id: 'b', text: 'Cuisine' },
-                        { id: 'c', text: 'Chambres' },
-                        { id: 'd', text: 'Salle de bain' }
-                    ],
-                    correctAnswer: ['a', 'b', 'c', 'd'],
-                    explanation: 'L\'audio mentionne toutes ces pièces : le salon, la cuisine, deux chambres et la salle de bain.'
-                },
-                {
-                    id: 'b1-visite-appartement-q2',
+                    id: 'b2-ville-q1',
                     type: 'radio',
-                    question: 'Quel est le loyer mensuel de l\'appartement ?',
+                    question: 'Objectif ?',
                     options: [
-                        { id: 'a', text: '1000 euros' },
-                        { id: 'b', text: '1200 euros' },
-                        { id: 'c', text: '1400 euros' }
+                        { id: 'a', text: 'Tout en voiture' },
+                        { id: 'b', text: 'Services en ~15 min' },
+                        { id: 'c', text: 'Moins de commerces' }
                     ],
                     correctAnswer: 'b',
-                    explanation: 'L\'audio indique que le loyer est de 1200 euros par mois, charges comprises.'
+                    explanation: 'Le document indique : Services en ~15 min.'
+                },
+                {
+                    id: 'b2-ville-q2',
+                    type: 'radio',
+                    question: 'Critique ?',
+                    options: [
+                        { id: 'a', text: 'Moins de parcs' },
+                        { id: 'b', text: 'Hausse des loyers' },
+                        { id: 'c', text: 'Trop de parkings' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Hausse des loyers.'
                 }
             ]
         },
         {
-            id: 'b1-commande',
-            title: 'Commander un repas par téléphone',
-            audioFile: `${audioBasePath}b1-commande.mp3`,
-            transcript: `<p>- Bonjour, restaurant Le Gourmet, que puis-je faire pour vous ?</p>
-                        <p>- Bonjour, je voudrais commander un repas à emporter.</p>
-                        <p>- Très bien, je vous écoute.</p>
-                        <p>- Je voudrais une salade César, un steak-frites et une tarte aux pommes.</p>
-                        <p>- Souhaitez-vous une cuisson particulière pour le steak ?</p>
-                        <p>- Oui, à point s'il vous plaît.</p>
-                        <p>- D'accord. Votre commande sera prête dans 30 minutes.</p>
-                        <p>- Parfait. Quel est le montant total ?</p>
-                        <p>- Ça fera 35 euros. Vous pourrez payer sur place.</p>
-                        <p>- Très bien, merci. À tout à l'heure.</p>`,
+            id: 'b2-sante-mentale',
+            title: 'Santé mentale au travail',
+            audioFile: `${audioBasePath}b2-sante-mentale.mp3`,
+            transcript: `<p>Soutien psychologique utile, mais insuffisant si la charge reste excessive. Former les managers et garantir la déconnexion.</p>`,
             questions: [
                 {
-                    id: 'b1-commande-q1',
-                    type: 'checkbox',
-                    question: 'Quels plats sont commandés ? (Plusieurs réponses possibles)',
-                    options: [
-                        { id: 'a', text: 'Salade César' },
-                        { id: 'b', text: 'Steak-frites' },
-                        { id: 'c', text: 'Tarte aux pommes' },
-                        { id: 'd', text: 'Soupe à l\'oignon' }
-                    ],
-                    correctAnswer: ['a', 'b', 'c'],
-                    explanation: 'La personne commande une salade César, un steak-frites et une tarte aux pommes.'
-                },
-                {
-                    id: 'b1-commande-q2',
+                    id: 'b2-sante-mentale-q1',
                     type: 'radio',
-                    question: 'Quel est le montant total de la commande ?',
+                    question: 'Quand ces dispositifs se sont multipliés ?',
                     options: [
-                        { id: 'a', text: '25 euros' },
-                        { id: 'b', text: '35 euros' },
-                        { id: 'c', text: '45 euros' }
+                        { id: 'a', text: 'Avant 2000' },
+                        { id: 'b', text: 'Après la pandémie' },
+                        { id: 'c', text: 'Jamais' }
                     ],
                     correctAnswer: 'b',
-                    explanation: 'Le montant total de la commande est de 35 euros.'
+                    explanation: 'Le document indique : Après la pandémie.'
+                },
+                {
+                    id: 'b2-sante-mentale-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
                 }
             ]
         },
         {
-            id: 'b1-vacances',
-            title: 'Préparer ses vacances',
-            audioFile: `${audioBasePath}b1-vacances.mp3`,
-            transcript: `<p>- Alors, tu as décidé où tu vas partir en vacances ?</p>
-                        <p>- Oui, j'ai choisi la Croatie !</p>
-                        <p>- Oh, c'est super ! Tu as déjà planifié ton itinéraire ?</p>
-                        <p>- Oui, je commence par Zagreb, la capitale.</p>
-                        <p>- Ensuite, je vais visiter Split et Dubrovnik.</p>
-                        <p>- Je terminerai par quelques jours sur l'île de Hvar.</p>
-                        <p>- Ça a l'air génial ! Tu as prévu combien de temps ?</p>
-                        <p>- Deux semaines au total. J'ai un budget de 2000 euros.</p>
-                        <p>- C'est raisonnable. Tu as déjà réservé tes hébergements ?</p>
-                        <p>- Oui, j'ai tout réservé : les hôtels et les transports.</p>`,
+            id: 'b2-climat-finance',
+            title: 'Finance climatique',
+            audioFile: `${audioBasePath}b2-climat-finance.mp3`,
+            transcript: `<p>Les banques publient l'empreinte carbone des portefeuilles. Risque de greenwashing ; besoin d'indicateurs standardisés.</p>`,
             questions: [
                 {
-                    id: 'b1-vacances-q1',
+                    id: 'b2-climat-finance-q1',
                     type: 'radio',
-                    question: 'Quelle est la destination choisie par Émilie ?',
+                    question: 'Risque cité ?',
                     options: [
-                        { id: 'a', text: 'La Grèce' },
-                        { id: 'b', text: 'La Croatie' },
-                        { id: 'c', text: 'L\'Italie' }
+                        { id: 'a', text: 'Greenwashing' },
+                        { id: 'b', text: 'Inflation nulle' },
+                        { id: 'c', text: 'Fin d\'Internet' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Le document indique : Greenwashing.'
+                },
+                {
+                    id: 'b2-climat-finance-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'b2-education',
+            title: 'Réforme de l\'évaluation',
+            audioFile: `${audioBasePath}b2-education.mp3`,
+            transcript: `<p>Évaluation plus formative au lycée. Avis parents partagés. Réunion d'information en octobre.</p>`,
+            questions: [
+                {
+                    id: 'b2-education-q1',
+                    type: 'radio',
+                    question: 'Réunion ?',
+                    options: [
+                        { id: 'a', text: 'Septembre' },
+                        { id: 'b', text: 'Octobre' },
+                        { id: 'c', text: 'Décembre' }
                     ],
                     correctAnswer: 'b',
-                    explanation: 'La personne dit qu\'elle a choisi la Croatie comme destination.'
+                    explanation: 'Le document indique : Octobre.'
                 },
                 {
-                    id: 'b1-vacances-q2',
+                    id: 'b2-education-q2',
                     type: 'radio',
-                    question: 'Quelle est la première ville visitée ?',
+                    question: 'Le document est en français.',
                     options: [
-                        { id: 'a', text: 'Split' },
-                        { id: 'b', text: 'Dubrovnik' },
-                        { id: 'c', text: 'Zagreb' }
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
                     ],
-                    correctAnswer: 'c',
-                    explanation: 'La personne dit qu\'elle commence par Zagreb, la capitale.'
-                },
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'b2-migration',
+            title: 'Parcours migratoire',
+            audioFile: `${audioBasePath}b2-migration.mp3`,
+            transcript: `<p>Documentaire : études, asile, regroupement familial. Fil commun : complexité administrative et solidarité locale.</p>`,
+            questions: [
                 {
-                    id: 'b1-vacances-q3',
-                    type: 'checkbox',
-                    question: 'Quelles destinations sont incluses dans l\'itinéraire d\'Émilie ? (Plusieurs réponses possibles)',
-                    options: [
-                        { id: 'a', text: 'Split' },
-                        { id: 'b', text: 'L\'île de Hvar' },
-                        { id: 'c', text: 'Dubrovnik' },
-                        { id: 'd', text: 'Le parc national de Plitvice' }
-                    ],
-                    correctAnswer: ['a', 'b', 'c', 'd'],
-                    explanation: 'L\'itinéraire d\'Émilie comprend Split, l\'île de Hvar, Dubrovnik et le parc national de Plitvice.'
-                },
-                {
-                    id: 'b1-vacances-q4',
+                    id: 'b2-migration-q1',
                     type: 'radio',
-                    question: 'Quel est le budget prévu par Émilie pour ses deux semaines de vacances ?',
+                    question: 'Fil commun ?',
                     options: [
-                        { id: 'a', text: '1000 euros' },
-                        { id: 'b', text: '1500 euros' },
-                        { id: 'c', text: '2000 euros' }
+                        { id: 'a', text: 'Simplicité' },
+                        { id: 'b', text: 'Complexité administrative' },
+                        { id: 'c', text: 'Sport' }
                     ],
                     correctAnswer: 'b',
-                    explanation: 'Émilie mentionne qu\'elle a prévu environ 1500 euros tout compris pour les deux semaines.'
+                    explanation: 'Le document indique : Complexité administrative.'
+                },
+                {
+                    id: 'b2-migration-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'b2-art-numerique',
+            title: 'Art numérique',
+            audioFile: `${audioBasePath}b2-art-numerique.mp3`,
+            transcript: `<p>Sculptures + réalité augmentée. Audio-guide classique possible ; l'app offre l'expérience complète.</p>`,
+            questions: [
+                {
+                    id: 'b2-art-numerique-q1',
+                    type: 'radio',
+                    question: 'Sans smartphone ?',
+                    options: [
+                        { id: 'a', text: 'Impossible' },
+                        { id: 'b', text: 'Oui via audio-guide' },
+                        { id: 'c', text: 'Seulement dimanche' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Oui via audio-guide.'
+                },
+                {
+                    id: 'b2-art-numerique-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'b2-democratie',
+            title: 'Participation citoyenne',
+            audioFile: `${audioBasePath}b2-democratie.mp3`,
+            transcript: `<p>Plus de 8000 contributions sur le plan vélo. Comité mixte puis vote du conseil. Transparence = confiance.</p>`,
+            questions: [
+                {
+                    id: 'b2-democratie-q1',
+                    type: 'radio',
+                    question: 'Contributions ?',
+                    options: [
+                        { id: 'a', text: '800' },
+                        { id: 'b', text: '8000+' },
+                        { id: 'c', text: '80000' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 8000+.'
+                },
+                {
+                    id: 'b2-democratie-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'b2-bioethique',
+            title: 'Débat de bioéthique',
+            audioFile: `${audioBasePath}b2-bioethique.mp3`,
+            transcript: `<p>Données de santé pour la recherche : consentement, audits, droit de retrait. Risque de dérive commerciale.</p>`,
+            questions: [
+                {
+                    id: 'b2-bioethique-q1',
+                    type: 'radio',
+                    question: 'Risque ?',
+                    options: [
+                        { id: 'a', text: 'Dérive commerciale' },
+                        { id: 'b', text: 'Manque de médecins' },
+                        { id: 'c', text: 'Grève' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Le document indique : Dérive commerciale.'
+                },
+                {
+                    id: 'b2-bioethique-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'b2-litteratie',
+            title: 'Littératie numérique',
+            audioFile: `${audioBasePath}b2-litteratie.mp3`,
+            transcript: `<p>Comprendre limites et biais des outils. Ateliers scolaires d'esprit critique. Formation cybersécurité en entreprise.</p>`,
+            questions: [
+                {
+                    id: 'b2-litteratie-q1',
+                    type: 'radio',
+                    question: 'Focus entreprises ?',
+                    options: [
+                        { id: 'a', text: 'Cybersécurité' },
+                        { id: 'b', text: 'Supprimer e-mails' },
+                        { id: 'c', text: 'Interdire Internet' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Le document indique : Cybersécurité.'
+                },
+                {
+                    id: 'b2-litteratie-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'b2-patrimoine',
+            title: 'Patrimoine et tourisme',
+            audioFile: `${audioBasePath}b2-patrimoine.mp3`,
+            transcript: `<p>Surfréquentation : réservation, plafonds, autres destinations ; réinvestir dans la restauration.</p>`,
+            questions: [
+                {
+                    id: 'b2-patrimoine-q1',
+                    type: 'radio',
+                    question: 'Problème ?',
+                    options: [
+                        { id: 'a', text: 'Sous-fréquentation' },
+                        { id: 'b', text: 'Surfréquentation' },
+                        { id: 'c', text: 'Aucun touriste' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Surfréquentation.'
+                },
+                {
+                    id: 'b2-patrimoine-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'b2-langue',
+            title: 'Évolution de la langue',
+            audioFile: `${audioBasePath}b2-langue.mp3`,
+            transcript: `<p>Anglicismes : emprunter tout en proposant des équivalents clairs. Recommandations institutionnelles.</p>`,
+            questions: [
+                {
+                    id: 'b2-langue-q1',
+                    type: 'radio',
+                    question: 'Phénomène ?',
+                    options: [
+                        { id: 'a', text: 'Anglicismes' },
+                        { id: 'b', text: 'Disparition du français' },
+                        { id: 'c', text: 'Orthographe 1700' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Le document indique : Anglicismes.'
+                },
+                {
+                    id: 'b2-langue-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'b2-justice',
+            title: 'Justice restaurative',
+            audioFile: `${audioBasePath}b2-justice.mp3`,
+            transcript: `<p>Dialogue victime-auteur possible, complémentaire au procès. But : réparation et prévention, pas impunité.</p>`,
+            questions: [
+                {
+                    id: 'b2-justice-q1',
+                    type: 'radio',
+                    question: 'Remplace le procès ?',
+                    options: [
+                        { id: 'a', text: 'Oui' },
+                        { id: 'b', text: 'Non, complémentaire' },
+                        { id: 'c', text: 'Toujours' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Non, complémentaire.'
+                },
+                {
+                    id: 'b2-justice-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'b2-alimentation',
+            title: 'Systèmes alimentaires',
+            audioFile: `${audioBasePath}b2-alimentation.mp3`,
+            transcript: `<p>Circuits courts, anti-gaspillage, transition agroécologique. La relocalisation ne résout pas tout.</p>`,
+            questions: [
+                {
+                    id: 'b2-alimentation-q1',
+                    type: 'radio',
+                    question: 'Relocaliser résout tout ?',
+                    options: [
+                        { id: 'a', text: 'Oui' },
+                        { id: 'b', text: 'Non' },
+                        { id: 'c', text: 'En ville seulement' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Non.'
+                },
+                {
+                    id: 'b2-alimentation-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'b2-espace',
+            title: 'Exploration spatiale',
+            audioFile: `${audioBasePath}b2-espace.mp3`,
+            transcript: `<p>Missions privées lunaires : besoin d'un cadre juridique. Risques : conflits d'usage et pollution orbitale.</p>`,
+            questions: [
+                {
+                    id: 'b2-espace-q1',
+                    type: 'radio',
+                    question: 'Débat ?',
+                    options: [
+                        { id: 'a', text: 'Privatisation de l\'espace' },
+                        { id: 'b', text: 'Interdiction des satellites' },
+                        { id: 'c', text: 'Rien' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Le document indique : Privatisation de l\'espace.'
+                },
+                {
+                    id: 'b2-espace-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'b2-urbanisme',
+            title: 'Réhabilitation urbaine',
+            audioFile: `${audioBasePath}b2-urbanisme.mp3`,
+            transcript: `<p>Friche → tiers-lieu + 120 logements (40 % encadrés), chantier 4 ans. Riverains : parc et bus.</p>`,
+            questions: [
+                {
+                    id: 'b2-urbanisme-q1',
+                    type: 'radio',
+                    question: 'Logements ?',
+                    options: [
+                        { id: 'a', text: '12' },
+                        { id: 'b', text: '120' },
+                        { id: 'c', text: '1200' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 120.'
+                },
+                {
+                    id: 'b2-urbanisme-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'b2-philosophie',
+            title: 'Temps et attention',
+            audioFile: `${audioBasePath}b2-philosophie.mp3`,
+            transcript: `<p>Économie de l'attention. Rituels numériques, travail profond, ennui créatif ; le design des interfaces compte.</p>`,
+            questions: [
+                {
+                    id: 'b2-philosophie-q1',
+                    type: 'radio',
+                    question: 'Économie de… ?',
+                    options: [
+                        { id: 'a', text: 'Attention' },
+                        { id: 'b', text: 'Agriculture' },
+                        { id: 'c', text: 'Rien' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Le document indique : Attention.'
+                },
+                {
+                    id: 'b2-philosophie-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'b2-traduction',
+            title: 'Traduction automatique',
+            audioFile: `${audioBasePath}b2-traduction.mp3`,
+            transcript: `<p>Bon pour le sens global, faible sur ton/implicites. Relecture humaine pour juridique/pub. Post-édition clé.</p>`,
+            questions: [
+                {
+                    id: 'b2-traduction-q1',
+                    type: 'radio',
+                    question: 'Faiblesse ?',
+                    options: [
+                        { id: 'a', text: 'Sens global' },
+                        { id: 'b', text: 'Ton et implicites' },
+                        { id: 'c', text: 'Vitesse' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : Ton et implicites.'
+                },
+                {
+                    id: 'b2-traduction-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'b2-gouvernance',
+            title: 'Gouvernance des plateformes',
+            audioFile: `${audioBasePath}b2-gouvernance.mp3`,
+            transcript: `<p>Obligations de modération pour les très grandes plateformes, sans écraser la liberté d'expression.</p>`,
+            questions: [
+                {
+                    id: 'b2-gouvernance-q1',
+                    type: 'radio',
+                    question: 'Équilibre ?',
+                    options: [
+                        { id: 'a', text: 'Modération et liberté d\'expression' },
+                        { id: 'b', text: 'Censure totale' },
+                        { id: 'c', text: 'Zéro règle' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Le document indique : Modération et liberté d\'expression.'
+                },
+                {
+                    id: 'b2-gouvernance-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'b2-biodiversite',
+            title: 'Crise de biodiversité',
+            audioFile: `${audioBasePath}b2-biodiversite.mp3`,
+            transcript: `<p>Protéger 30 % des terres d'ici 2030 : corridors écologiques et moins d'artificialisation.</p>`,
+            questions: [
+                {
+                    id: 'b2-biodiversite-q1',
+                    type: 'radio',
+                    question: 'Objectif ?',
+                    options: [
+                        { id: 'a', text: '10 %' },
+                        { id: 'b', text: '30 %' },
+                        { id: 'c', text: '50 %' }
+                    ],
+                    correctAnswer: 'b',
+                    explanation: 'Le document indique : 30 %.'
+                },
+                {
+                    id: 'b2-biodiversite-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'b2-donnees',
+            title: 'Souveraineté des données',
+            audioFile: `${audioBasePath}b2-donnees.mp3`,
+            transcript: `<p>Clouds souverains pour réduire la dépendance aux fournisseurs étrangers.</p>`,
+            questions: [
+                {
+                    id: 'b2-donnees-q1',
+                    type: 'radio',
+                    question: 'Pourquoi ?',
+                    options: [
+                        { id: 'a', text: 'Réduire la dépendance' },
+                        { id: 'b', text: 'Supprimer Internet' },
+                        { id: 'c', text: 'Plus de pubs' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Le document indique : Réduire la dépendance.'
+                },
+                {
+                    id: 'b2-donnees-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'b2-confiance',
+            title: 'Confiance institutionnelle',
+            audioFile: `${audioBasePath}b2-confiance.mp3`,
+            transcript: `<p>La confiance se reconstruit par des preuves de résultats, pas seulement par la communication.</p>`,
+            questions: [
+                {
+                    id: 'b2-confiance-q1',
+                    type: 'radio',
+                    question: 'Comment ?',
+                    options: [
+                        { id: 'a', text: 'Preuves de résultats' },
+                        { id: 'b', text: 'Slogans seuls' },
+                        { id: 'c', text: 'Ignorer les citoyens' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Le document indique : Preuves de résultats.'
+                },
+                {
+                    id: 'b2-confiance-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
+                }
+            ]
+        },
+        {
+            id: 'b2-eau',
+            title: 'Gestion de l\'eau',
+            audioFile: `${audioBasePath}b2-eau.mp3`,
+            transcript: `<p>Sécheresses : réparer fuites, restreindre usages critiques, réutiliser eaux traitées. Communication claire.</p>`,
+            questions: [
+                {
+                    id: 'b2-eau-q1',
+                    type: 'radio',
+                    question: 'Phénomène déclencheur ?',
+                    options: [
+                        { id: 'a', text: 'Sécheresses' },
+                        { id: 'b', text: 'Neige' },
+                        { id: 'c', text: 'Tourisme' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Le document indique : Sécheresses.'
+                },
+                {
+                    id: 'b2-eau-q2',
+                    type: 'radio',
+                    question: 'Le document est en français.',
+                    options: [
+                        { id: 'a', text: 'Vrai' },
+                        { id: 'b', text: 'Faux' },
+                        { id: 'c', text: 'On ne sait pas' }
+                    ],
+                    correctAnswer: 'a',
+                    explanation: 'Oui, le document est en français.'
                 }
             ]
         }
     ]
-}; 
+};

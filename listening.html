@@ -1,165 +1,234 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>French Listening Practice - TEF/DELF Preparation</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <base target="_parent">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hemiya Listen — French Listening Practice (TEF/DELF)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/listening.css">
+  <base target="_parent">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>French Listening Practice</h1>
-            <div class="form-toggle">
-                <a href="#" class="form-toggle-link" id="toggle-form">Hide Contact Form</a>
-            </div>
-        </header>
+  <div class="bg-glow" aria-hidden="true"></div>
+  <div class="container">
+    <header class="site-header">
+      <div class="brand">
+        <img src="https://yiyang512.github.io/new/hemiya.jpg" alt="Hemiya" class="brand-avatar">
+        <div>
+          <p class="brand-kicker">Hemiya</p>
+          <h1>Listen</h1>
+        </div>
+      </div>
+      <div class="header-actions">
+        <span id="user-chip" class="user-chip hidden"></span>
+        <button type="button" id="reset-user" class="text-btn" title="Clear saved profile">Reset profile</button>
+      </div>
+    </header>
 
-        <main>
-            <!-- Contact Form Section - Visible by default -->
-            <div id="contact-form-container">
-                <div class="form-header">
-                    <div class="avatar-container">
-                        <img src="https://yiyang512.github.io/new/hemiya.jpg" alt="Hemiya Bot" class="avatar">
-                    </div>
-                    <h2>Begin Your French Learning Journey</h2>
-                    <p>Please provide your information to access our listening practice tool</p>
-                </div>
-                
-                <form id="contact-form">
-                    <div class="form-group">
-                        <label for="fullName">Full Name <span class="required">*</span></label>
-                        <input type="text" id="fullName" name="fullName" required>
-                        <div class="error-message" id="fullName-error">Please enter your full name</div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email Address <span class="required">*</span></label>
-                        <input type="email" id="email" name="email" required>
-                        <div class="error-message" id="email-error">Please enter a valid email address</div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">Phone Number (optional)</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="targetLevel">Target French Level <span class="required">*</span></label>
-                        <select id="targetLevel" name="targetLevel" required>
-                            <option value="">-- Select your level --</option>
-                            <option value="A1">A1 - Beginner</option>
-                            <option value="A2">A2 - Elementary</option>
-                            <option value="B1">B1 - Intermediate</option>
-                            <option value="B2">B2 - Upper Intermediate</option>
-                        </select>
-                        <div class="error-message" id="targetLevel-error">Please select your target level</div>
-                    </div>
-                    
-                    <button type="submit" id="submit-form">Start Your French Journey</button>
-                    
-                    <div id="form-success" class="form-message success-message hidden">
-                        <p>Thank you for your submission! You now have access to our listening practice tool.</p>
-                    </div>
-                    
-                    <div id="form-error" class="form-message error-message hidden">
-                        <p>There was an error processing your submission. Please try again.</p>
-                    </div>
-                </form>
+    <main>
+      <!-- Contact / gate -->
+      <section id="contact-section" class="panel contact-panel">
+        <div class="form-header">
+          <h2>Begin your French listening journey</h2>
+          <p>Enter your details to unlock TEF/DELF-style listening practice. New registrations are sent to our Telegram bot.</p>
+        </div>
+
+        <form id="contact-form" novalidate>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="fullName">Full name <span class="required">*</span></label>
+              <input type="text" id="fullName" name="fullName" autocomplete="name" required>
+              <div class="error-message" id="fullName-error">Please enter your full name</div>
             </div>
 
-            <!-- Listening Level Selection - Hidden by default -->
-            <div id="listening-app" class="hidden">
-                <div class="level-selector">
-                    <h2>Sélectionnez votre niveau</h2>
-                    <div class="level-buttons">
-                        <button class="level-btn" data-level="A1">A1</button>
-                        <button class="level-btn" data-level="A2">A2</button>
-                        <button class="level-btn" data-level="B1">B1</button>
-                        <button class="level-btn" data-level="B2">B2</button>
-                    </div>
-                </div>
-
-                <div id="level-description" class="hidden">
-                    <div class="level-info">
-                        <h2>Niveau <span id="current-level">A1</span></h2>
-                        <p id="level-explanation"></p>
-                    </div>
-                    <div class="listening-selector">
-                        <label for="listening-select">Choisissez un audio:</label>
-                        <select id="listening-select">
-                            <option value="">-- Sélectionnez un audio --</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div id="listening-container" class="hidden">
-                    <div class="audio-player-container">
-                        <h3>Écoutez attentivement</h3>
-                        <div class="audio-player">
-                            <audio id="audio-player" controls>
-                                <source id="audio-source" src="" type="audio/mp3">
-                                Votre navigateur ne supporte pas l'élément audio.
-                            </audio>
-                            <div class="audio-controls">
-                                <button id="play-audio" class="control-btn">Écouter</button>
-                                <button id="pause-audio" class="control-btn">Pause</button>
-                                <button id="replay-audio" class="control-btn">Réécouter</button>
-                            </div>
-                        </div>
-                        <div class="playback-count">
-                            <p>Nombre d'écoutes: <span id="playback-counter">0</span>/2</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timer-container">
-                        <span id="timer">05:00</span>
-                        <button id="start-timer">Démarrer</button>
-                    </div>
-                    
-                    <section class="transcript hidden" id="transcript-section">
-                        <h2>Transcription</h2>
-                        <div id="transcript-content" class="transcript-content"></div>
-                    </section>
-
-                    <section class="questions">
-                        <h2>Questions de compréhension</h2>
-                        <form id="quiz-form"></form>
-                    </section>
-
-                    <section class="results hidden" id="results">
-                        <h2>Résultats</h2>
-                        <p id="score"></p>
-                        <div id="detailed-feedback"></div>
-                    </section>
-                </div>
+            <div class="form-group">
+              <label for="email">Email <span class="required">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+              <div class="error-message" id="email-error">Please enter a valid email address</div>
             </div>
-        </main>
 
-        <footer>
-            <p>French Listening Practice Tool for TEF/DELF Preparation</p>
-        </footer>
-    </div>
+            <div class="form-group">
+              <label for="phone">Phone <span class="optional">(optional)</span></label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel">
+            </div>
 
-    <script src="js/listening-data.js"></script>
-    <script src="js/listening-script.js"></script>
-    <script>
-        // Toggle contact form visibility
-        document.getElementById('toggle-form').addEventListener('click', function(e) {
-            e.preventDefault();
-            const formContainer = document.getElementById('contact-form-container');
-            const toggleLink = document.getElementById('toggle-form');
-            
-            if (formContainer.classList.contains('hidden')) {
-                formContainer.classList.remove('hidden');
-                toggleLink.textContent = 'Hide Contact Form';
-            } else {
-                formContainer.classList.add('hidden');
-                toggleLink.textContent = 'Show Contact Form';
-            }
-        });
-    </script>
+            <div class="form-group">
+              <label for="targetLevel">Target level <span class="required">*</span></label>
+              <select id="targetLevel" name="targetLevel" required>
+                <option value="">Select your level</option>
+                <option value="A1">A1 — Beginner</option>
+                <option value="A2">A2 — Elementary</option>
+                <option value="B1">B1 — Intermediate</option>
+                <option value="B2">B2 — Upper intermediate</option>
+              </select>
+              <div class="error-message" id="targetLevel-error">Please select your target level</div>
+            </div>
+
+            <div class="form-group">
+              <label for="prefMode">Practice style</label>
+              <select id="prefMode" name="prefMode">
+                <option value="exam">Exam mode (2 listens)</option>
+                <option value="practice">Practice mode (unlimited + speed)</option>
+              </select>
+            </div>
+
+            <div class="form-group form-group-full">
+              <label for="note">Anything we should know? <span class="optional">(optional)</span></label>
+              <textarea id="note" name="note" rows="2" placeholder="Goals, exam date, weak points…"></textarea>
+            </div>
+
+            <!-- Honeypot: leave empty. Bots that fill it are ignored server-side. -->
+            <div class="hp" aria-hidden="true">
+              <label for="website">Website</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+          </div>
+
+          <button type="submit" id="submit-form">Start listening practice</button>
+          <p class="fine-print">Registrations notify <a href="https://t.me/Hemiya_listen_bot" target="_blank" rel="noopener">@Hemiya_listen_bot</a> on Telegram.</p>
+
+          <div id="form-success" class="form-message success-message hidden">
+            <p>You’re in. Loading your listening workspace…</p>
+          </div>
+          <div id="form-error" class="form-message error-message hidden">
+            <p>There was a problem sending your registration.</p>
+          </div>
+        </form>
+      </section>
+
+      <!-- Main app -->
+      <section id="listening-app" class="hidden">
+        <div class="level-selector panel">
+          <div class="section-head">
+            <h2>Choose your level</h2>
+            <p>Browse exercises, track scores, and train with exam or practice rules.</p>
+          </div>
+          <div class="level-buttons">
+            <button class="level-btn" data-level="A1">A1</button>
+            <button class="level-btn" data-level="A2">A2</button>
+            <button class="level-btn" data-level="B1">B1</button>
+            <button class="level-btn" data-level="B2">B2</button>
+          </div>
+        </div>
+
+        <div id="level-panel" class="hidden">
+          <div class="panel level-info">
+            <div class="section-head inline">
+              <div>
+                <h2 id="level-title">Niveau A1</h2>
+                <p id="level-explanation"></p>
+              </div>
+              <div id="stats-bar" class="stats-bar"></div>
+            </div>
+            <div class="toolbar">
+              <label class="search-wrap">
+                <span class="sr-only">Search exercises</span>
+                <input type="search" id="exercise-search" placeholder="Search exercises…">
+              </label>
+            </div>
+            <div id="exercise-grid" class="exercise-grid"></div>
+          </div>
+        </div>
+
+        <div id="session-panel" class="hidden">
+          <div class="session-top">
+            <button type="button" id="back-btn" class="ghost">← Back to exercises</button>
+            <div class="session-actions">
+              <button type="button" id="toggle-mode" class="ghost">Switch mode</button>
+              <span id="mode-badge" class="mode-badge exam">Exam mode</span>
+            </div>
+          </div>
+
+          <div class="panel player-panel">
+            <div class="session-heading">
+              <div>
+                <h2 id="exercise-title">Exercise</h2>
+                <p id="exercise-meta" class="muted"></p>
+              </div>
+              <span id="source-badge" class="source-badge">Preparing…</span>
+            </div>
+
+            <audio id="audio-el" preload="metadata"></audio>
+
+            <div class="player">
+              <div class="progress-track" aria-hidden="true">
+                <div id="progress-fill" class="progress-fill"></div>
+              </div>
+              <div class="player-meta">
+                <span id="time-current">00:00</span>
+                <span id="player-status" class="muted">Ready</span>
+                <span id="time-total">00:00</span>
+              </div>
+              <div class="player-controls">
+                <button type="button" id="play-btn" class="control-btn primary">Play</button>
+                <button type="button" id="pause-btn" class="control-btn" disabled>Pause</button>
+                <button type="button" id="stop-btn" class="control-btn" disabled>Stop</button>
+                <button type="button" id="replay-btn" class="control-btn">Replay</button>
+                <label class="speed-wrap">
+                  Speed
+                  <select id="speed-select">
+                    <option value="0.75">0.75×</option>
+                    <option value="1" selected>1×</option>
+                    <option value="1.15">1.15×</option>
+                    <option value="1.25">1.25×</option>
+                  </select>
+                </label>
+              </div>
+              <div class="playback-count">
+                Listens: <strong><span id="play-count">0</span>/<span id="play-limit">2</span></strong>
+                <span class="hint">Space = play/pause</span>
+              </div>
+            </div>
+
+            <div class="timer-row">
+              <span id="timer" class="timer">05:00</span>
+              <button type="button" id="timer-toggle">Start timer</button>
+              <button type="button" id="timer-reset" class="ghost">Reset</button>
+            </div>
+          </div>
+
+          <div class="panel questions-panel">
+            <div class="section-head inline">
+              <h2>Comprehension questions</h2>
+              <button type="button" id="reveal-transcript" class="ghost">Show transcript</button>
+            </div>
+            <form id="quiz-form"></form>
+          </div>
+
+          <section class="panel transcript hidden" id="transcript-section">
+            <h2>Transcript</h2>
+            <div id="transcript-content" class="transcript-content"></div>
+          </section>
+
+          <section class="panel results hidden" id="results">
+            <div class="section-head inline">
+              <div>
+                <h2>Results</h2>
+                <p id="score-summary" class="score-summary"></p>
+              </div>
+              <div class="results-actions">
+                <button type="button" id="retry-btn" class="ghost">Retry</button>
+                <button type="button" id="next-btn">Next exercise</button>
+              </div>
+            </div>
+            <div id="score-detail" class="score-detail"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Hemiya Listen · TEF / DELF French listening practice</p>
+    </footer>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/telegram.js"></script>
+  <script src="js/listening-data.js"></script>
+  <script src="js/app.js"></script>
 </body>
-</html> 
+</html>
